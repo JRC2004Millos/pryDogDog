@@ -1,0 +1,54 @@
+#footer {
+  background: linear-gradient(to bottom, #74aabf, #74aabf, white);
+  display: flex;
+  justify-content: space-between; /* Distribuye los elementos */
+  align-items: center; /* Centra verticalmente los elementos */
+  color: white;
+  width: 95%;
+  padding: 20px 50px; /* Añade un relleno a los laterales */
+  position: relative; /* Para que se mantenga al final del contenido */
+}
+
+#contact {
+  display: flex;
+  flex-direction: column; /* Muestra el contenido en columna */
+  justify-content: center;
+  align-items: flex-start; /* Alinea a la izquierda */
+}
+
+#contact p {
+  margin: 5px 0;
+  color: black;
+}
+
+#contact a {
+  text-decoration: none;
+  color: black;
+  margin: 0;
+}
+
+/* Centrar la imagen en el footer */
+.fotoFooter {
+  margin: 0 auto;
+  border-radius: 50%;
+  height: 150px;
+}
+
+/* Sección de redes sociales a la derecha */
+#social {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logos {
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+/* Efecto zoom en hover */
+.logos:hover {
+  transform: scale(1.5);
+}
