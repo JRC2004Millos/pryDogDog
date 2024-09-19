@@ -74,7 +74,10 @@ body {
   margin: 20px;
   color: white;
   position: relative;
+  margin: 0;
 }
+
+
 
 .titulo h1 {
   margin: 0;
@@ -105,7 +108,6 @@ body {
   align-items: center;
   width: 100%;
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .table {
@@ -163,4 +165,11 @@ body {
 .table .btn-delete:hover {
   background-color: #da190b;
   transform: scale(1.2);
+}
+
+
+
+.inicio{
+  background: linear-gradient(to bottom, #064469, #54859a);
+
 }

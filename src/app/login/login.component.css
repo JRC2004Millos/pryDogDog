@@ -17,6 +17,10 @@ html, body {
     align-items: center;
     height: calc(100vh - 200px); /* Resta el tamaño del header y footer */
   }
+
+  main[_ngcontent-ng-c3702766150]{
+    background: linear-gradient(to bottom, #064469, #5790ab, #74aabf);
+  }
   
   .container {
     display: flex;
