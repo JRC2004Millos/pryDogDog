@@ -1,10 +1,10 @@
 #footer {
   background: linear-gradient(to bottom, #74aabf, #74aabf, white);
-  display: flex;
+  display:flex;
   justify-content: space-between; /* Distribuye los elementos */
   align-items: center; /* Centra verticalmente los elementos */
   color: white;
-  width: 95%;
+  width: 100%;
   padding: 20px 50px; /* Añade un relleno a los laterales */
   position: relative; /* Para que se mantenga al final del contenido */
 }

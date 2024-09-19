@@ -1,0 +1,78 @@
+<header>
+  <img src="assets/images/LogoFin.png" alt="Logo" />
+  <ul>
+    <!-- Error comentado: Property 'veterinarioId' does not exist -->
+    <!-- <li><a [routerLink]="['/veterinario', veterinarioId]">Inicio</a></li> -->
+    <li><a routerLink="/veterinario">Inicio</a></li>
+  </ul>
+</header>
+
+<main>
+  <div class="titulo">
+    <h1>Mascotas</h1>
+    <!-- Error comentado: Property 'veterinarioId' does not exist -->
+    <!-- <a [routerLink]="['/mascotas/agregar', veterinarioId]" type="button"> -->
+    <a [routerLink]="['/add-mascota']" type="button">
+      <img src="assets/images/add2.png" alt="Add" height="60px" class="add" />
+    </a>
+  </div>
+
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Raza</th>
+          <th>Edad</th>
+          <th>Peso</th>
+          <th>Enfermedad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Error comentado: Property 'mascotas' does not exist -->
+        <!-- <tr *ngFor="let mascota of mascotas" class="justify-content-center"> -->
+        <tr
+          class="justify-content-center"
+          *ngFor="let mascota of listaMascotas"
+        >
+          <td>
+            <img
+              src="{{ mascota.fotoURL }}"
+              alt="Mascota"
+              style="width: 80px; height: 60px"
+            />
+          </td>
+          <td>{{ mascota.nombre }}</td>
+          <td>{{ mascota.raza }}</td>
+          <td>{{ mascota.edad }}</td>
+          <td>{{ mascota.peso }}</td>
+          <td>{{ mascota.enfermedad }}</td>
+          <td class="botones">
+            <!-- Error comentado: Property 'veterinarioId' does not exist -->
+            <!-- <a class="btn btn-outline-secondary" [routerLink]="['/mascotas/modificar', mascota.id, { veterinarioId }]"> -->
+            <a
+              class="btn btn-outline-secondary"
+              routerLink="/modificar-mascota"
+            >
+              <img src="assets/images/editar.png" alt="Edit" height="40px" />
+            </a>
+            <!-- Error comentado: Property 'veterinarioId' does not exist -->
+            <!-- <a class="btn btn-outline-danger" [routerLink]="['/mascotas/eliminar', mascota.id, { veterinarioId }]"> -->
+            <a
+              class="btn btn-outline-danger"
+              (click)="eliminarMascota(mascota)"
+            >
+              <img
+                src="assets/images/eliminar.png"
+                alt="Delete"
+                height="40px"
+              />
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

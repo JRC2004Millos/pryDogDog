@@ -1,0 +1,106 @@
+<header class="header">
+  <img src="assets/images/LogoFin.png" alt="Logo" />
+  <ul>
+    <li><a routerLink="/login">Cerrar Sesión</a></li>
+    <!-- Usamos Angular Router -->
+  </ul>
+</header>
+
+<main>
+  <h1 class="tituloSeccion">
+    Datos Personales <span><!--{{ cliente.nombre }}--></span>
+    <br />
+    <br />
+  </h1>
+
+  <table class="datosPersonales">
+    <thead>
+      <tr>
+        <th class="headerTabla">Datos</th>
+        <th class="headerTabla">Información Personal</th>
+      </tr>
+    </thead>
+    <tbody>
+    <!--<tr>
+        <th class="contenidoIzq">Nombre</th>
+        <td>{{ cliente.nombre }}</td>
+      </tr>
+      <tr>
+        <th class="contenidoIzq">Cédula</th>
+        <td>{{ cliente.cedula }}</td>
+      </tr>
+      <tr>
+        <th class="contenidoIzq">Correo</th>
+        <td>{{ cliente.email }}</td>
+      </tr>
+      <tr>
+        <th class="contenidoIzq">Teléfono</th>
+        <td>{{ cliente.celular }}</td>
+      </tr>-->
+    </tbody>
+  </table>
+
+  <br />
+  <br />
+
+  <!-- Contenedor Flex para el título y el selector de mascotas -->
+  <div class="header-container">
+    <h1 class="tituloSeccion">Datos de las <span>Mascotas</span></h1>
+
+    <!-- Selector de mascotas con Angular -->
+    <div class="form-group ml-3">
+      <!--<select
+        class="mascota-select form-control form-select"
+        (change)="mostrarMascota($event)"
+      >
+        <option *ngFor="let mascota of mascotas" [value]="mascota.id">
+          {{ mascota.nombre }}
+        </option>
+      </select>-->
+    </div>
+  </div>
+
+  <!-- Información de cada mascota -->
+  <div
+    class="datosMascotaSection">
+    <!--
+    *ngFor="let mascota of mascotas"
+    [ngStyle]="{ display: selectedMascota === mascota.id ? 'flex' : 'none' }"
+    -->
+
+    <!-- Contenedor de la imagen -->
+    <div class="mascota-img-container">
+      <!--<img [src]="mascota.fotoURL" alt="Foto de la Mascota" class="mascota" />-->
+    </div>
+
+    <!-- Contenedor de los datos de la mascota -->
+    <div class="mascota-datos-container">
+      <table class="datosMascota">
+        <thead>
+          <tr>
+            <th class="headerTabla">Datos</th>
+            <th class="headerTabla">Información Personal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--<tr>
+            <th>Nombre</th>
+            <td>{{ mascota.nombre }}</td>
+          </tr>
+          <tr>
+            <th>Raza</th>
+            <td>{{ mascota.raza }}</td>
+          </tr>
+          <tr>
+            <th>Edad</th>
+            <td>{{ mascota.edad }} años</td>
+          </tr>
+          <tr>
+            <th>Peso</th>
+            <td>{{ mascota.peso }} Kg</td>
+          </tr>-->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

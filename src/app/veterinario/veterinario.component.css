@@ -1,0 +1,145 @@
+header {
+  /* Define el encabezado como un contenedor flexible */
+  display: flex;
+  /* Distribuye el espacio entre los elementos secundarios */
+  justify-content: space-between;
+  /* Centra los elementos a lo largo del eje transversal */
+  align-items: center;
+  /* Establece el color de fondo del encabezado */
+  background-color: #064469;
+  height: 100px;
+}
+
+header img {
+  height: 80%;
+  margin-left: 20px;
+}
+
+a {
+  /* Añade un margen de 10px alrededor de los enlaces */
+  margin: 10px;
+}
+
+header > ul {
+  /* Define la lista dentro del encabezado como un contenedor flexible */
+  display: flex;
+  justify-content: end;
+  margin: 0;
+  padding: 0;
+}
+
+header ul li {
+  align-items: center;
+  display: flex;
+  /* Establece el tamaño de la fuente a 18px */
+  font-size: 18px;
+  /* Elimina el estilo de lista predeterminado */
+  list-style-type: none;
+}
+
+header li a:hover {
+  /* Cambia el color del texto a rojo al pasar el cursor */
+  color: red;
+  /* Subraya el texto al pasar el cursor */
+  text-decoration: underline;
+}
+
+header a {
+  padding: 3px;
+  /* Elimina la subrayado predeterminado */
+  text-decoration: none;
+  /* Establece el color del texto en blanco */
+  color: white;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #74aabf;
+}
+
+.titulo {
+  text-align: center;
+  margin: 30px;
+  font-family: dm-sans;
+  font-weight: 800;
+}
+
+.main a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #064469, #5790ab, #74aabf);
+  min-height: 75vh;
+}
+
+#vet {
+  background: radial-gradient(circle, #74aabf, #5790ab, #064469);
+  border: 1px solid black;
+  color: white;
+  width: 80%;
+  border-radius: 20px;
+  margin: 50px;
+}
+
+.testimonial-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#nombreVet {
+  font-size: 70px;
+  font-family: dm-sans;
+  font-weight: 1000;
+}
+
+.testimonial-box:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.testimonial-box {
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 30px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.name-user strong {
+  color: #222224;
+  font-size: 2.5rem;
+  letter-spacing: 0.5px;
+}
+
+.box-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.client-comment p {
+  font-size: 1.5rem;
+  color: black;
+  margin-left: 40px;
+}

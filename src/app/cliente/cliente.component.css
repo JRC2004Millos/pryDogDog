@@ -1,0 +1,139 @@
+html {
+    min-height: 100%;
+    position: relative;
+  }
+  
+  body {
+    margin: 0;
+    padding-bottom: 120px; /* Espacio suficiente para el footer */
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, #064469, #54859a);
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #155274;
+    height: 100px;
+  }
+  
+  header img {
+    height: 80%;
+    margin-left: 20px;
+  }
+  
+  a {
+    margin: 10px;
+  }
+  
+  header > ul {
+    display: flex;
+    justify-content: end;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header ul li {
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+    list-style-type: none;
+    color: white;
+  }
+  
+  header li a:hover {
+    color: red;
+    text-decoration: underline;
+  }
+  
+  header a {
+    padding: 3px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  h1 {
+    margin-top: 5px;
+  }
+  
+  .datosPersonales {
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 30px;
+    margin: 0 auto;
+  }
+  
+  .headerTabla {
+    background-color: #064469;
+    color: white;
+    text-align: center;
+  }
+  
+  td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #000000;
+    font-size: 30px;
+  }
+  
+  th {
+    border: 1px solid #000000;
+    padding: 8px;
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #84b9cf;
+    color: black;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #3d728c;
+    color: black;
+  }
+  
+  .tituloSeccion {
+    margin-left: 50px;
+    font-size: 40px;
+    color: white;
+  }
+  
+  .contenidoIzq {
+    text-align: center;
+  }
+  
+  .infoMascota {
+    display: flex;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    gap: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .mascota-img-container {
+    width: 50%;
+    margin-right: 20px;
+  }
+  
+  .datosMascotaSection {
+    display: flex;
+  }
+  
+  .mascota {
+    width: 50%;
+    border-radius: 50px;
+    margin-left: 50px;
+    border: 3px solid black;
+  }
+  
+  .mascotas-datos-container {
+    display: flex;
+  }
+  

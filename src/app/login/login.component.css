@@ -1,0 +1,163 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  body {
+    background: linear-gradient(to bottom, #064469, #5790ab, #74aabf);
+  }
+  
+  main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 200px); /* Resta el tamaño del header y footer */
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  
+  form {
+    background: radial-gradient(circle, #74aabf, #5790ab, #064469);
+    padding: 3em;
+    height: auto;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    border: 1px solid black;
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.2s ease-in-out; /* Transición para darle vida */
+  }
+  
+  form:hover {
+    transform: scale(1.02); /* Pequeño efecto de zoom al pasar el cursor */
+  }
+  
+  form p {
+    font-weight: 500;
+    color: #ffffff;
+    opacity: 0.7;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 60px;
+  }
+  
+  form a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 12px;
+  }
+  
+  form input {
+    background: transparent;
+    width: 100%; /* Ocupar el 100% del contenedor */
+    padding: 1em;
+    margin-bottom: 2em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  form input:focus {
+    outline: none;
+    box-shadow: 0 0 10px 2px #6096ae; /* Efecto cuando se hace focus */
+  }
+  
+  ::placeholder {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  
+  .botones {
+    background-color: #6096ae;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .botones:hover {
+    background-color: #064469;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #155274;
+    height: 100px;
+    padding: 0 20px; /* Espacio lateral extra */
+  }
+  
+  header img {
+    height: 80%;
+    margin-left: 10px;
+  }
+  
+  a {
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  header > ul {
+    display: flex;
+    justify-content: end;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header ul li {
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+    list-style-type: none;
+    color: white;
+  }
+  
+  header li a:hover {
+    color: red;
+    text-decoration: underline;
+  }
+  
+  header a {
+    padding: 3px;
+  }
+  
+  .titulo {
+    font-size: 30px;
+  }
+  
+  .form-control {
+    margin: 5px;
+  }
+  
+  .logos {
+    transition: transform 0.3s ease; /* Transición suave para el zoom */
+    border-radius: 10px;
+  }
+  
+  /* Efecto de zoom al pasar el ratón */
+  .logos:hover {
+    transform: scale(1.5);
+  }
+  

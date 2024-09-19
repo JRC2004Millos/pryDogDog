@@ -1,0 +1,83 @@
+<header>
+  <img src="assets/images/LogoFin.png" alt="Logo" />
+  <ul>
+    <li><a routerLink="/home">Inicio</a></li>
+  </ul>
+</header>
+
+<main>
+  <div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <h2>Iniciar Sesión</h2>
+        <label for="type" class="form-label"></label>
+        <select
+          class="form-select"
+          formControlName="type"
+          (change)="onUserTypeChange($event)"
+        >
+          <option value="" disabled selected>Tipo de usuario:</option>
+          <option value="1">Veterinario</option>
+          <option value="2">Administrador</option>
+          <option value="3">Cliente</option>
+        </select>
+      </div>
+
+      <!-- Campos para Veterinario -->
+      <div *ngIf="selectedType === '1'" class="dynamic-fields">
+        <div class="mb-3">
+          <input
+            type="number"
+            class="form-control"
+            formControlName="cedulaVeterinario"
+            placeholder="Cedula"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="password"
+            class="form-control"
+            formControlName="passwordVet"
+            placeholder="Contraseña"
+          />
+        </div>
+      </div>
+
+      <!-- Campos para Administrador -->
+      <div *ngIf="selectedType === '2'" class="dynamic-fields">
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="usuario"
+            placeholder="Usuario"
+          />
+        </div>
+        <div class="mb-3">
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="Contraseña"
+          />
+        </div>
+      </div>
+
+      <!-- Campos para Cliente -->
+      <div *ngIf="selectedType === '3'" class="dynamic-fields">
+        <div class="mb-3">
+          <input
+            type="number"
+            class="form-control"
+            formControlName="cedula"
+            placeholder="Cedula"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button type="submit" class="btn btn-dark">Iniciar Sesión</button>
+      </div>
+    </form>
+  </div>
+</main>

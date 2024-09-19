@@ -1,0 +1,73 @@
+<header class="header">
+  <img src="assets/images/LogoFin.png" alt="Logo" />
+  <ul>
+    <li><a routerLink="/login">Cerrar sesión</a></li>
+  </ul>
+</header>
+
+<main class="main">
+  <section class="testimonials" id="vet">
+    <!-- Comentado por error de 'veterinario' no definido, descomentar al conectar con backend -->
+    <!-- <h1 class="titulo" id="nombreVet">{{ veterinario.nombre }}</h1> -->
+
+    <h3 class="titulo">Escoja una de las siguientes opciones:</h3>
+    <div class="textSecComents"></div>
+
+    <div class="testimonial-box-container row">
+      <!-- Comentado por error de 'veterinario' no definido, descomentar al conectar con backend -->
+      <!-- <a [routerLink]="['/mascotas', veterinario.id]" class="col"> -->
+      <a [routerLink]="['/mascotas']" class="col">
+        <div class="testimonial-box">
+          <div class="box-top">
+            <div class="profile">
+              <div class="name-user">
+                <strong>Ver Mascotas</strong>
+              </div>
+            </div>
+          </div>
+          <div class="client-comment">
+            <p>
+              Acá puedes ver los perros que se tienen registrados dentro de
+              nuestra veterinaria.
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Comentado por error de 'veterinario' no definido, descomentar al conectar con backend -->
+      <!-- <a [routerLink]="['/MostrarCliente', veterinario.id]" class="col"> -->
+      <a [routerLink]="['/MostrarCliente']" class="col">
+        <div class="testimonial-box">
+          <div class="box-top">
+            <div class="profile">
+              <div class="name-user">
+                <strong>Ver Clientes</strong>
+              </div>
+            </div>
+          </div>
+          <div class="client-comment">
+            <p>
+              Acá puedes ver los clientes que se tienen registrados dentro de
+              nuestra veterinaria.
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <a [routerLink]="['/tratamientos']" class="col">
+        <div class="testimonial-box">
+          <div class="box-top">
+            <div class="profile">
+              <div class="name-user">
+                <strong class="registrados">Reg Tratamientos</strong>
+              </div>
+            </div>
+          </div>
+          <div class="client-comment">
+            <p>Acá puedes registrar el tratamiento dado a una mascota.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
