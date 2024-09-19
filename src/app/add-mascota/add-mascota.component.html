@@ -13,15 +13,15 @@
       <h1>Registrar Mascota</h1>
       <!-- Comentado por error de 'mascotaForm' no definido, descomentar al conectar con backend -->
       <!-- <form [formGroup]="mascotaForm" (ngSubmit)="onSubmit()"> -->
-      <form>
+      <form #mascotaForm="ngForm" (ngSubmit)="addMascota()">
         <div class="row mb-3">
           <div class="col">
             <label for="nombre" class="form-label">Nombre</label>
             <input
-              formControlName="nombre"
               type="text"
               class="form-control"
               id="nombre"
+              name="nombre"
               placeholder="Nombre"
               [(ngModel)]="formMascota.nombre"
               required
@@ -30,10 +30,10 @@
           <div class="col">
             <label for="raza" class="form-label">Raza</label>
             <input
-              formControlName="raza"
               type="text"
               class="form-control"
               id="raza"
+              name="raza"
               placeholder="Raza"
               [(ngModel)]="formMascota.raza"
               required
@@ -45,10 +45,10 @@
           <div class="col">
             <label for="edad" class="form-label">Edad</label>
             <input
-              formControlName="edad"
               type="number"
               class="form-control"
               id="edad"
+              name="edad"
               placeholder="Edad"
               [(ngModel)]="formMascota.edad"
               required
@@ -57,10 +57,10 @@
           <div class="col">
             <label for="peso" class="form-label">Peso</label>
             <input
-              formControlName="peso"
               type="number"
               class="form-control"
               id="peso"
+              name="peso"
               placeholder="Peso"
               step="0.1"
               [(ngModel)]="formMascota.peso"
@@ -73,10 +73,10 @@
           <div class="col">
             <label for="enfermedad" class="form-label">Enfermedad</label>
             <input
-              formControlName="enfermedad"
               type="text"
               class="form-control"
               id="enfermedad"
+              name="enfermedad"
               placeholder="Enfermedad"
               [(ngModel)]="formMascota.enfermedad"
             />
@@ -85,7 +85,7 @@
             <label for="cliente" class="form-label">Cliente</label>
             <!-- Comentado por error de 'clientes' no definido, descomentar al conectar con backend -->
             <!-- <select formControlName="cliente" class="form-select" id="cliente" required> -->
-            <select class="form-select" id="cliente" required>
+            <select class="form-select" id="cliente" name="cliente" required>
               <option value="" disabled selected>Selecciona el cliente</option>
               <!-- <option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nombre }}</option> -->
             </select>
@@ -95,17 +95,23 @@
         <div class="mb-3">
           <label for="fotoURL" class="form-label">Foto</label>
           <input
-            formControlName="fotoURL"
             type="text"
             class="form-control"
             id="fotoURL"
+            name="fotoURL"
             placeholder="URL de la imagen de la mascota"
             [(ngModel)]="formMascota.fotoURL"
             required
           />
         </div>
 
-        <button type="submit" class="btn btn-dark">Agregar</button>
+        <button
+          type="submit"
+          class="btn btn-dark"
+          [disabled]="!mascotaForm.form.valid"
+        >
+          Agregar
+        </button>
       </form>
     </div>
   </div>
