@@ -54,10 +54,11 @@
             <!-- <a class="btn btn-outline-secondary" [routerLink]="['/mascotas/modificar', mascota.id, { veterinarioId }]"> -->
             <a
               class="btn btn-outline-secondary"
-              routerLink="/modificar-mascota"
+              [routerLink]="['/modificar-mascota', mascota.id]"
             >
               <img src="assets/images/editar.png" alt="Edit" height="40px" />
             </a>
+
             <!-- Error comentado: Property 'veterinarioId' does not exist -->
             <!-- <a class="btn btn-outline-danger" [routerLink]="['/mascotas/eliminar', mascota.id, { veterinarioId }]"> -->
             <a

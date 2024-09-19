@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'mascotas', component: MostrarMascotasComponent },
   { path: 'MostrarCliente', component: MostrarClientesComponent },
   { path: 'add-mascota', component: AddMascotaComponent },
-  { path: 'modificar-mascota', component: ModificarMascotaComponent },
+  { path: 'modificar-mascota/:id', component: ModificarMascotaComponent },
   //{ path: 'administrador', component: AdministradorComponent },
   { path: 'cliente', component: ClienteComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

@@ -77,4 +77,11 @@ export class MascotaService {
     var index = this.listaMascotas.indexOf(mascota);
     this.listaMascotas.splice(index, 1);
   }
+
+  updateMascota(updatedMascota: Mascota): void {
+    const index = this.listaMascotas.findIndex(mascota => mascota.id === updatedMascota.id);
+    if (index !== -1) {
+      this.listaMascotas[index] = updatedMascota;
+    }
+  }
 }

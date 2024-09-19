@@ -21,7 +21,6 @@ export class MostrarMascotasComponent {
   eliminarMascota(mascota: Mascota): void {
     var index = this.listaMascotas.indexOf(mascota);
     this.listaMascotas.splice(index, 1);
-    this.mascotaService.deleteMascota(mascota);
   }
 
   modificarMascota(mascota: Mascota): void {
