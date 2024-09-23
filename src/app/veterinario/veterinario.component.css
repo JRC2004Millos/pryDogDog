@@ -68,6 +68,7 @@ body {
   margin: 30px;
   font-family: dm-sans;
   font-weight: 800;
+  font-size: 60px;
 }
 
 .main a {
@@ -82,7 +83,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #064469, #5790ab, #74aabf);
+  background: linear-gradient(to bottom, #155274, #5790ab, #74aabf);
   min-height: 75vh;
 }
 
@@ -142,4 +143,5 @@ body {
   font-size: 1.5rem;
   color: black;
   margin-left: 40px;
+  line-height: 1.3;
 }

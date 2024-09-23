@@ -119,11 +119,16 @@
   }
   
   .titulos {
+    color: white;
     font-weight: bold;
     font-size: 45px;
     text-align: center;
     font-family: Georgia;
     margin-top: 10px;
+  }
+
+  .carrusel h2 span{
+    color: #064469;
   }
   
   .textSec2 h2 span {
@@ -304,4 +309,59 @@
   .tranding-slider-control .swiper-pagination .swiper-pagination-bullet-active {
     background: var(--primary);
   }
-  
+
+.Clientes{
+  background-color: #7DC7D4;
+  padding: 5px;
+}
+
+.Clientes h2 span{
+  color: #064469;
+}
+
+.carrusel{
+  background-color: #7DC7D4;
+  padding: 2rem;
+}
+
+.card-container {
+  display: flex;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  grid-gap: 20px; /* Espacio entre cartas */
+  margin-top: 100px;
+
+}
+
+.card{
+  width: 100%; /* Ancho completo de cada columna */
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.card img{
+  width: 100%;
+  height: 40%;
+}
+
+.card-content{
+  padding: 16px;
+}
+
+.card-content h3{
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.card-content p{
+  color: black;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.parrafo {
+  line-height: 1.6; /* Ajusta este valor según la separación que desees */
+  font-size: 1.6rem; /* Opcional: ajusta el tamaño de la fuente si es necesario */
+  margin-bottom: 20px; /* Opcional: agrega espacio después del párrafo */
+}

@@ -14,6 +14,8 @@ import { MostrarClientesComponent } from './mostrar-clientes/mostrar-clientes.co
 import { AddMascotaComponent } from './add-mascota/add-mascota.component';
 import { ModificarMascotaComponent } from './modificar-mascota/modificar-mascota.component';
 import { MascotaTableComponent } from './mascota/mascota-table/mascota-table.component';
+import { CarouselModule } from './carousel/carousel.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { MascotaTableComponent } from './mascota/mascota-table/mascota-table.com
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule, 
+    CarouselModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
