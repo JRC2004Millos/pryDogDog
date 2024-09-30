@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MascotaService } from '../service/mascota.service';
+import { MascotaService } from 'src/app/service/mascota.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Mascota } from '../mascota/mascota';
+import { Mascota } from 'src/app/model/mascota';
 
 @Component({
   selector: 'app-modificar-mascota',
@@ -37,13 +37,13 @@ export class ModificarMascotaComponent implements OnInit {
     const mascota = this.mascotaService.findById(id);
     if (mascota) {
       // Asignamos todos los valores de la mascota seleccionada al formulario
-      this.formMascota = { ...mascota };
+      //this.formMascota = { ...mascota };
     }
   }
 
   modificarMascota() {
     // Actualizar los datos de la mascota en el servicio
-    this.mascotaService.updateMascota(this.formMascota);
+    this.mascotaService.addMascota(this.formMascota);
 
     // Redirigir a la lista de mascotas
     this.router.navigate(['/mascotas']);

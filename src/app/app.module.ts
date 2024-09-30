@@ -9,13 +9,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { VeterinarioComponent } from './veterinario/veterinario.component';
-import { MostrarMascotasComponent } from './mostrar-mascotas/mostrar-mascotas.component';
-import { MostrarClientesComponent } from './mostrar-clientes/mostrar-clientes.component';
-import { AddMascotaComponent } from './add-mascota/add-mascota.component';
-import { ModificarMascotaComponent } from './modificar-mascota/modificar-mascota.component';
+import { MostrarMascotasComponent } from './mascota/mostrar-mascotas/mostrar-mascotas.component';
+import { MostrarClientesComponent } from './cliente/mostrar-clientes/mostrar-clientes.component';
+import { AddMascotaComponent } from './mascota/add-mascota/add-mascota.component';
+import { ModificarMascotaComponent } from './mascota/modificar-mascota/modificar-mascota.component';
 import { MascotaTableComponent } from './mascota/mascota-table/mascota-table.component';
 import { CarouselModule } from './carousel/carousel.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule, 
-    CarouselModule, BrowserAnimationsModule
+    CarouselModule, BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

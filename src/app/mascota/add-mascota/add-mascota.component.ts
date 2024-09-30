@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Mascota } from '../mascota/mascota';
-import { MascotaService } from '../service/mascota.service';
+import { Mascota } from '../../model/mascota';
+import { MascotaService } from '../../service/mascota.service';
 import { Router } from '@angular/router';
 
 @Component({

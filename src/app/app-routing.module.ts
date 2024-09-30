@@ -4,10 +4,10 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { VeterinarioComponent } from './veterinario/veterinario.component';
-import { MostrarMascotasComponent } from './mostrar-mascotas/mostrar-mascotas.component';
-import { MostrarClientesComponent } from './mostrar-clientes/mostrar-clientes.component';
-import { AddMascotaComponent } from './add-mascota/add-mascota.component';
-import { ModificarMascotaComponent } from './modificar-mascota/modificar-mascota.component';
+import { MostrarMascotasComponent } from './mascota/mostrar-mascotas/mostrar-mascotas.component';
+import { MostrarClientesComponent } from './cliente/mostrar-clientes/mostrar-clientes.component';
+import { AddMascotaComponent } from './mascota/add-mascota/add-mascota.component';
+import { ModificarMascotaComponent } from './mascota/modificar-mascota/modificar-mascota.component';
 //import { AdministradorComponent } from './administrador/administrador.component';
 
 const routes: Routes = [
