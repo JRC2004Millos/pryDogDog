@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MascotaService } from 'src/app/service/mascota.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Mascota } from 'src/app/model/mascota';
@@ -23,28 +22,23 @@ export class ModificarMascotaComponent implements OnInit {
     peso: 0
   };
 
+  mascota!: Mascota;
+
   constructor(
     private route: ActivatedRoute,
     private mascotaService: MascotaService,
     private router: Router
-  ) {}
+  ) { }
 
-ngOnInit(): void {
-  // Obtener el ID de la mascota desde la URL
-  const id = +this.route.snapshot.paramMap.get('id')!;
-
-  // Cargar los datos de la mascota en el formulario
-  this.mascotaService.findById(id).subscribe(
-    (mascota) => {
-      // Asignamos todos los valores de la mascota seleccionada al formulario
-      this.formMascota = { ...mascota };
-    },
-    (error) => {
-      // Manejo del error si no se encuentra la mascota
-      console.error('Error al cargar los datos de la mascota:', error);
-    }
-  );
-}
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const id = Number(params.get('id'));
+      this.mascotaService.findById(id).subscribe((mascota) => {
+        this.mascota = mascota;
+        this.formMascota = { ...mascota };
+      })
+    })
+  }
 
 
   modificarMascota() {

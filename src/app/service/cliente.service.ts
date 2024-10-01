@@ -15,7 +15,7 @@ export class ClienteService {
   }
 
   findById(id: number): Observable<Cliente> {
-    return this.http.get<Cliente>('http://localhost:8080/clientes/ver/${id}');
+    return this.http.get<Cliente>('http://localhost:8080/clientes/ver/' + id);
   }
 
   deleteById(id: number) {

@@ -8,9 +8,7 @@
 
 <main>
   <h1 class="tituloSeccion">
-    Datos Personales <span><!--{{ cliente.nombre }}--></span>
-    <br />
-    <br />
+    Datos Personales <span *ngIf="cliente">{{ cliente.nombre }}</span>
   </h1>
 
   <table class="datosPersonales">
@@ -20,8 +18,8 @@
         <th class="headerTabla">Información Personal</th>
       </tr>
     </thead>
-    <tbody>
-    <!--<tr>
+    <tbody *ngIf="cliente">
+      <tr>
         <th class="contenidoIzq">Nombre</th>
         <td>{{ cliente.nombre }}</td>
       </tr>
@@ -36,41 +34,32 @@
       <tr>
         <th class="contenidoIzq">Teléfono</th>
         <td>{{ cliente.celular }}</td>
-      </tr>-->
+      </tr>
     </tbody>
   </table>
 
-  <br />
-  <br />
-
-  <!-- Contenedor Flex para el título y el selector de mascotas -->
+  <!-- Contenedor Flex para el título y el selector de mascotas
   <div class="header-container">
     <h1 class="tituloSeccion">Datos de las <span>Mascotas</span></h1>
 
-    <!-- Selector de mascotas con Angular -->
+     Selector de mascotas con Angular 
     <div class="form-group ml-3">
-      <!--<select
+      <select
         class="mascota-select form-control form-select"
         (change)="mostrarMascota($event)"
       >
         <option *ngFor="let mascota of mascotas" [value]="mascota.id">
           {{ mascota.nombre }}
         </option>
-      </select>-->
+      </select>
     </div>
-  </div>
+  </div> -->
 
   <!-- Información de cada mascota -->
-  <div
-    class="datosMascotaSection">
-    <!--
-    *ngFor="let mascota of mascotas"
-    [ngStyle]="{ display: selectedMascota === mascota.id ? 'flex' : 'none' }"
-    -->
-
+  <div class="datosMascotaSection" *ngFor="let mascota of cliente.mascotas">
     <!-- Contenedor de la imagen -->
     <div class="mascota-img-container">
-      <!--<img [src]="mascota.fotoURL" alt="Foto de la Mascota" class="mascota" />-->
+      <img [src]="mascota.fotoURL" alt="Foto de la Mascota" class="mascota" />
     </div>
 
     <!-- Contenedor de los datos de la mascota -->
@@ -83,7 +72,7 @@
           </tr>
         </thead>
         <tbody>
-          <!--<tr>
+          <tr>
             <th>Nombre</th>
             <td>{{ mascota.nombre }}</td>
           </tr>
@@ -98,7 +87,7 @@
           <tr>
             <th>Peso</th>
             <td>{{ mascota.peso }} Kg</td>
-          </tr>-->
+          </tr>
         </tbody>
       </table>
     </div>

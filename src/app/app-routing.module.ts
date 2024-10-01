@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'add-cliente', component: AddClienteComponent },
   { path: 'modificar-mascota/:id', component: ModificarMascotaComponent },
   //{ path: 'administrador', component: AdministradorComponent },
-  { path: 'cliente', component: ClienteComponent },
+  { path: 'cliente/:id', component: ClienteComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
