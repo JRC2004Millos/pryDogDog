@@ -26,4 +26,8 @@ export class MascotaService {
   addMascota(mascota: Mascota){
     this.http.post('http://localhost:8080/mascotas/agregar', mascota).subscribe();
   }
+
+  updateMascota(mascota: Mascota){
+    this.http.put('http://localhost:8080/mascotas/modificar', mascota).subscribe();
+  }
 }

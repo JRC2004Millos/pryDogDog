@@ -8,6 +8,7 @@ import { MostrarMascotasComponent } from './mascota/mostrar-mascotas/mostrar-mas
 import { MostrarClientesComponent } from './cliente/mostrar-clientes/mostrar-clientes.component';
 import { AddMascotaComponent } from './mascota/add-mascota/add-mascota.component';
 import { ModificarMascotaComponent } from './mascota/modificar-mascota/modificar-mascota.component';
+import { AddClienteComponent } from './cliente/add-cliente/add-cliente.component';
 //import { AdministradorComponent } from './administrador/administrador.component';
 
 const routes: Routes = [
@@ -15,8 +16,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'veterinario', component: VeterinarioComponent },
   { path: 'mascotas', component: MostrarMascotasComponent },
-  { path: 'MostrarCliente', component: MostrarClientesComponent },
+  { path: 'clientes', component: MostrarClientesComponent },
   { path: 'add-mascota', component: AddMascotaComponent },
+  { path: 'add-cliente', component: AddClienteComponent },
   { path: 'modificar-mascota/:id', component: ModificarMascotaComponent },
   //{ path: 'administrador', component: AdministradorComponent },
   { path: 'cliente', component: ClienteComponent },

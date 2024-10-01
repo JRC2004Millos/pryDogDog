@@ -83,7 +83,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #155274, #5790ab, #74aabf);
+  background: linear-gradient(to bottom, #064469, #54859a);
   min-height: 75vh;
 }
 

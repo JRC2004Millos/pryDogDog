@@ -1,28 +1,27 @@
 <header>
   <img src="assets/images/LogoFin.png" alt="Logo" />
   <ul>
-    <!-- Comentado por error de 'veterinarioId' no definido, descomentar al conectar con backend -->
-    <!-- <li><a [routerLink]="['/veterinario', veterinarioId]">Inicio</a></li> -->
+    <li><a routerLink="/veterinario">Inicio</a></li>
   </ul>
 </header>
 
-<main>
+<main class="inicio">
   <div class="titulo">
     <h1>Clientes</h1>
-    <!-- Comentado por error de 'veterinarioId' no definido, descomentar al conectar con backend -->
-    <!-- <a [routerLink]="['/clientes/agregar', veterinarioId]" type="button"> -->
-    <a type="button">
+    <a [routerLink]="['/add-cliente']" type="button">
       <img
         src="assets/images/agregar.png"
         alt="Add"
-        height="40px"
+        height="60px"
         class="add"
       />
     </a>
   </div>
 
   <div class="container">
-    <table class="table">
+    <table
+      class="table mx-auto text-center justify-content-center align-items-center"
+    >
       <thead>
         <tr>
           <th>Nombre</th>
@@ -33,22 +32,26 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Comentado por error de 'clientes' no definido, descomentar al conectar con backend -->
-        <!-- <tr *ngFor="let cliente of clientes"> -->
-        <tr>
-          <td>Nombre del Cliente</td>
-          <td>Cédula del Cliente</td>
-          <td>Celular del Cliente</td>
-          <td>Email del Cliente</td>
-          <td>
-            <!-- Comentado por error de 'veterinarioId' no definido, descomentar al conectar con backend -->
-            <!-- <a class="btn btn-outline-secondary" [routerLink]="['/clientes/modificar', cliente.id, {veterinarioId}]"> -->
-            <a class="btn btn-outline-secondary">
+        <tr
+          class="justify-content-center"
+          *ngFor="let cliente of listaClientes"
+        >
+          <td>{{ cliente.nombre }}</td>
+          <td>{{ cliente.cedula }}</td>
+          <td>{{ cliente.celular }}</td>
+          <td>{{ cliente.email }}</td>
+          <td class="botones">
+            <a
+              class="btn btn-outline-secondary"
+              [routerLink]="['/modificar-cliente', cliente.id]"
+            >
               <img src="assets/images/editar.png" alt="Edit" height="40px" />
             </a>
-            <!-- Comentado por error de 'veterinarioId' no definido, descomentar al conectar con backend -->
-            <!-- <a class="btn btn-outline-danger" [routerLink]="['/clientes/eliminar', cliente.id, {veterinarioId}]"> -->
-            <a class="btn btn-outline-danger">
+
+            <a
+              class="btn btn-outline-danger"
+              (click)="eliminarCliente(cliente)"
+            >
               <img
                 src="assets/images/eliminar.png"
                 alt="Delete"

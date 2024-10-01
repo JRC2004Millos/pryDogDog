@@ -1,8 +1,6 @@
 <header>
   <img src="assets/images/LogoFin.png" alt="Logo" />
   <ul>
-    <!-- Error comentado: Property 'veterinarioId' does not exist -->
-    <!-- <li><a [routerLink]="['/veterinario', veterinarioId]">Inicio</a></li> -->
     <li><a routerLink="/veterinario">Inicio</a></li>
   </ul>
 </header>
@@ -10,10 +8,13 @@
 <main class="inicio">
   <div class="titulo">
     <h1>Mascotas</h1>
-    <!-- Error comentado: Property 'veterinarioId' does not exist -->
-    <!-- <a [routerLink]="['/mascotas/agregar', veterinarioId]" type="button"> -->
     <a [routerLink]="['/add-mascota']" type="button">
-      <img src="assets/images/add2.png" alt="Add" height="60px" class="add" />
+      <img
+        src="assets/images/agregar.png"
+        alt="Add"
+        height="60px"
+        class="add"
+      />
     </a>
   </div>
 

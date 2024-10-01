@@ -29,21 +29,27 @@ export class ModificarMascotaComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    // Obtener el ID de la mascota desde la URL
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    
-    // Cargar los datos de la mascota en el formulario
-    const mascota = this.mascotaService.findById(id);
-    if (mascota) {
+ngOnInit(): void {
+  // Obtener el ID de la mascota desde la URL
+  const id = +this.route.snapshot.paramMap.get('id')!;
+
+  // Cargar los datos de la mascota en el formulario
+  this.mascotaService.findById(id).subscribe(
+    (mascota) => {
       // Asignamos todos los valores de la mascota seleccionada al formulario
-      //this.formMascota = { ...mascota };
+      this.formMascota = { ...mascota };
+    },
+    (error) => {
+      // Manejo del error si no se encuentra la mascota
+      console.error('Error al cargar los datos de la mascota:', error);
     }
-  }
+  );
+}
+
 
   modificarMascota() {
     // Actualizar los datos de la mascota en el servicio
-    this.mascotaService.addMascota(this.formMascota);
+    this.mascotaService.updateMascota(this.formMascota);
 
     // Redirigir a la lista de mascotas
     this.router.navigate(['/mascotas']);
