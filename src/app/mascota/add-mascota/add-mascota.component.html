@@ -83,11 +83,17 @@
           </div>
           <div class="col">
             <label for="cliente" class="form-label">Cliente</label>
-            <!-- Comentado por error de 'clientes' no definido, descomentar al conectar con backend -->
-            <!-- <select formControlName="cliente" class="form-select" id="cliente" required> -->
-            <select class="form-select" id="cliente" name="cliente" required>
+            <select
+              class="form-select"
+              id="cliente"
+              name="cliente"
+              [(ngModel)]="formMascota.cliente"
+              required
+            >
               <option value="" disabled selected>Selecciona el cliente</option>
-              <!-- <option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nombre }}</option> -->
+              <option *ngFor="let cliente of clientes" [ngValue]="cliente">
+                {{ cliente.nombre }}
+              </option>
             </select>
           </div>
         </div>

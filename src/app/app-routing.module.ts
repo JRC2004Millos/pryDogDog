@@ -9,6 +9,7 @@ import { MostrarClientesComponent } from './cliente/mostrar-clientes/mostrar-cli
 import { AddMascotaComponent } from './mascota/add-mascota/add-mascota.component';
 import { ModificarMascotaComponent } from './mascota/modificar-mascota/modificar-mascota.component';
 import { AddClienteComponent } from './cliente/add-cliente/add-cliente.component';
+import { ModificarClienteComponent } from './cliente/modificar-cliente/modificar-cliente.component';
 //import { AdministradorComponent } from './administrador/administrador.component';
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'add-mascota', component: AddMascotaComponent },
   { path: 'add-cliente', component: AddClienteComponent },
   { path: 'modificar-mascota/:id', component: ModificarMascotaComponent },
+  { path: 'modificar-cliente/:id', component: ModificarClienteComponent },
   //{ path: 'administrador', component: AdministradorComponent },
   { path: 'cliente/:id', component: ClienteComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

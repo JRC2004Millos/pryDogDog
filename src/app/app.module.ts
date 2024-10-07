@@ -18,6 +18,7 @@ import { CarouselModule } from './carousel/carousel.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AddClienteComponent } from './cliente/add-cliente/add-cliente.component';
+import { ModificarClienteComponent } from './cliente/modificar-cliente/modificar-cliente.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AddClienteComponent } from './cliente/add-cliente/add-cliente.component
     AddMascotaComponent,
     ModificarMascotaComponent,
     MascotaTableComponent,
-    AddClienteComponent
+    AddClienteComponent,
+    ModificarClienteComponent
   ],
   imports: [
     BrowserModule,

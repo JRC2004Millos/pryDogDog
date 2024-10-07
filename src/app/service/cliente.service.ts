@@ -26,4 +26,8 @@ export class ClienteService {
   addCliente(Cliente: Cliente) {
     this.http.post('http://localhost:8080/clientes/agregar', Cliente).subscribe();
   }
+
+  updateCliente(Cliente: Cliente) {
+    this.http.put('http://localhost:8080/clientes/modificar', Cliente).subscribe();
+  }
 }
