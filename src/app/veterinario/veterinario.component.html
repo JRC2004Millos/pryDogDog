@@ -7,15 +7,11 @@
 
 <main class="main">
   <section class="testimonials" id="vet">
-    <!-- Comentado por error de 'veterinario' no definido, descomentar al conectar con backend -->
-    <!-- <h1 class="titulo" id="nombreVet">{{ veterinario.nombre }}</h1> -->
-
+    <h1 class="titulo" id="nombreVet" *ngIf="veterinario">{{ veterinario.nombre }}</h1>
     <h3 class="titulo">Escoja una de las siguientes opciones:</h3>
     <div class="textSecComents"></div>
 
     <div class="testimonial-box-container row">
-      <!-- Comentado por error de 'veterinario' no definido, descomentar al conectar con backend -->
-      <!-- <a [routerLink]="['/mascotas', veterinario.id]" class="col"> -->
       <a [routerLink]="['/mascotas']" class="col">
         <div class="testimonial-box">
           <div class="box-top">
@@ -59,7 +55,7 @@
           <div class="box-top">
             <div class="profile">
               <div class="name-user">
-                <strong class="registrados">Reg Tratamientos</strong>
+                <strong class="registrados"> Registrar Tratamientos</strong>
               </div>
             </div>
           </div>

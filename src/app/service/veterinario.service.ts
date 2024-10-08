@@ -11,11 +11,11 @@ export class VeterinarioService {
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Veterinario[]> {
-    return this.http.get<Veterinario[]>('http://localhost:8080/veterinario/ver');
+    return this.http.get<Veterinario[]>('http://localhost:8080/veterinario');
   }
 
   findById(id: number): Observable<Veterinario> {
-    return this.http.get<Veterinario>('http://localhost:8080/veterinario/ver/' + id);
+    return this.http.get<Veterinario>('http://localhost:8080/veterinario/' + id);
   }
 
   deleteById(id: number) {
