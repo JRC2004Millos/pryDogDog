@@ -15,7 +15,7 @@ import { ModificarClienteComponent } from './cliente/modificar-cliente/modificar
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'veterinario', component: VeterinarioComponent },
+  { path: 'veterinario/:id', component: VeterinarioComponent },
   { path: 'mascotas', component: MostrarMascotasComponent },
   { path: 'clientes', component: MostrarClientesComponent },
   { path: 'add-mascota', component: AddMascotaComponent },

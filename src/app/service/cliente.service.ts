@@ -27,7 +27,11 @@ export class ClienteService {
     this.http.post('http://localhost:8080/clientes/agregar', Cliente).subscribe();
   }
 
-  updateCliente(Cliente: Cliente) {
-    this.http.put('http://localhost:8080/clientes/modificar', Cliente).subscribe();
+  findByCedula(cedula: number): Observable<Cliente> {
+    return this.http.get<Cliente>('http://localhost:8080/clientes/cedula/' + cedula);
+  }
+
+  updateCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(`http://localhost:8080/clientes/modificar/${cliente.id}`, cliente);
   }
 }

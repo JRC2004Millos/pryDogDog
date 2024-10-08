@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { ClienteService } from '../service/cliente.service';
+import { VeterinarioService } from '../service/veterinario.service';
+import { Cliente } from '../model/cliente';
+import { Veterinario } from '../model/veterinario';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +15,16 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   loginForm: FormGroup;
   selectedType: string = '';
+  cliente?: Cliente;
+  veterinario?: Veterinario;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private http: HttpClient,
+    private clienteService: ClienteService,
+    private veterinarioService: VeterinarioService // Inyectar el servicio de veterinario
+  ) {
     this.loginForm = this.fb.group({
       type: ['', Validators.required],
       cedulaVeterinario: [''],
@@ -22,20 +35,60 @@ export class LoginComponent {
     });
   }
 
+  // Cambia el tipo de usuario seleccionado
   onUserTypeChange(event: any) {
     this.selectedType = event.target.value;
   }
 
+  // Enviar el formulario al backend
   onSubmit() {
     const userType = this.loginForm.get('type')?.value;
-    
+    let formData: any;
+
+    // Veterinario
     if (userType === '1') {
-      this.router.navigate(['/veterinario']);  // Redirige a la pantalla de Veterinario
-    } else if (userType === '2') {
-      this.router.navigate(['/administrador']);  // Redirige a la pantalla de Administrador
-    } else if (userType === '3') {
-      this.router.navigate(['/cliente']);  // Redirige a la pantalla de Cliente
+      const cedulaVeterinario = this.loginForm.get('cedulaVeterinario')?.value;
+      const passwordVet = this.loginForm.get('passwordVet')?.value;
+
+      // Llamar al servicio para buscar al veterinario por su cédula y contraseña
+      this.veterinarioService.findByCedula(cedulaVeterinario).subscribe(
+        (veterinario: Veterinario) => {
+          console.log(veterinario);
+          // Si el veterinario existe y las credenciales son correctas, redirigir a la página del veterinario
+          if (veterinario.clave == passwordVet) {
+            this.router.navigate(['/veterinario', veterinario.id]);
+          } else {
+            console.error('Veterinario no encontrado o credenciales incorrectas');
+            alert('Veterinario no encontrado o credenciales incorrectas, por favor verifique su cédula y contraseña.');
+          }
+        },
+        (error) => {
+          console.error('Error al verificar el veterinario:', error);
+          alert('Error al verificar el veterinario.');
+        }
+      );
+    }
+
+    // Cliente
+    if (userType === '3') {
+      const cedulaCliente = this.loginForm.get('cedula')?.value;
+
+      // Llamar al servicio para buscar el cliente por su cédula
+      this.clienteService.findByCedula(cedulaCliente).subscribe(
+        (cliente: Cliente) => {
+          // Si el cliente existe, redirigir a la página del cliente
+          if (cliente) {
+            this.router.navigate(['/cliente', cliente.id]);
+          } else {
+            console.error('Cliente no encontrado');
+            alert('Cliente no encontrado, por favor verifique su cédula.');
+          }
+        },
+        (error) => {
+          console.error('Error al verificar el cliente:', error);
+          alert('Error al verificar el cliente.');
+        }
+      );
     }
   }
-
 }
