@@ -1,139 +1,174 @@
 html {
-    min-height: 100%;
-    position: relative;
-  }
-  
-  body {
-    margin: 0;
-    padding-bottom: 120px; /* Espacio suficiente para el footer */
-    box-sizing: border-box;
-    background: linear-gradient(to bottom, #064469, #54859a);
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #155274;
-    height: 100px;
-  }
-  
-  header img {
-    height: 80%;
-    margin-left: 20px;
-  }
-  
-  a {
-    margin: 10px;
-  }
-  
-  header > ul {
-    display: flex;
-    justify-content: end;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header ul li {
-    align-items: center;
-    display: flex;
-    font-size: 18px;
-    list-style-type: none;
-    color: white;
-  }
-  
-  header li a:hover {
-    color: red;
-    text-decoration: underline;
-  }
-  
-  header a {
-    padding: 3px;
-    color: white;
-    text-decoration: none;
-  }
-  
-  h1 {
-    margin-top: 5px;
-  }
-  
-  .datosPersonales {
-    width: 70%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    font-size: 30px;
-    margin: 0 auto;
-  }
-  
-  .headerTabla {
-    background-color: #064469;
-    color: white;
-    text-align: center;
-  }
-  
-  td {
-    padding: 8px;
-    text-align: center;
-    border: 1px solid #000000;
-    font-size: 30px;
-  }
-  
-  th {
-    border: 1px solid #000000;
-    padding: 8px;
-    color: black;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #84b9cf;
-    color: black;
-  }
-  
-  tr:nth-child(odd) {
-    background-color: #3d728c;
-    color: black;
-  }
-  
-  .tituloSeccion {
-    margin-left: 50px;
-    font-size: 40px;
-    color: white;
-  }
-  
-  .contenidoIzq {
-    text-align: center;
-  }
-  
-  .infoMascota {
-    display: flex;
-  }
-  
-  .header-container {
-    display: flex;
-    align-items: center;
-    gap: 200px;
-    margin-bottom: 20px;
-  }
-  
-  .mascota-img-container {
-    width: 50%;
-    margin-right: 20px;
-  }
-  
-  .datosMascotaSection {
-    display: flex;
-  }
-  
-  .mascota {
-    width: 50%;
-    border-radius: 50px;
-    margin-left: 50px;
-    border: 3px solid black;
-  }
-  
-  .mascotas-datos-container {
-    display: flex;
-  }
-  
+  min-height: 100%;
+  position: relative;
+  margin: 0; /* Asegúrate de que el HTML no tenga márgenes */
+}
+
+body {
+  margin: 0; /* Elimina márgenes por defecto */
+  padding-bottom: 120px; /* Espacio suficiente para el footer */
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #155274;
+  height: 100px;
+  width: 100%; /* Asegura que el header ocupe el 100% del ancho disponible */
+  margin: 0; /* Elimina márgenes que puedan limitar el ancho */
+  padding: 0; /* Elimina el padding si lo hay */
+}
+
+header img {
+  height: 80%;
+  margin-left: 20px;
+}
+
+a {
+  margin: 10px;
+}
+
+header > ul {
+  display: flex;
+  justify-content: end;
+  margin: 0;
+  padding: 0;
+}
+
+header ul li {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  list-style-type: none;
+  color: white;
+}
+
+header li a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+header a {
+  padding: 3px;
+  color: white;
+  text-decoration: none;
+}
+
+.datosPersonales {
+  margin: 3% auto;
+  width: 70%;
+  border-collapse: collapse;
+  font-size: 30px;
+}
+
+.headerTabla {
+  background-color: #064469;
+  color: white;
+  text-align: center;
+}
+
+td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #000000;
+  font-size: 30px;
+}
+
+th {
+  border: 1px solid #000000;
+  padding: 8px;
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+tr:nth-child(even) {
+  background-color: #91cbe4;
+  color: black;
+}
+
+tr:nth-child(odd) {
+  background-color: #80c6e9;
+  color: black;
+}
+
+.tituloSeccion {
+  margin-left: 50px;
+  font-size: 40px;
+  color: white;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.contenidoIzq {
+  text-align: center;
+}
+
+.infoMascota {
+  display: flex;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 200px;
+  margin-bottom: 20px;
+}
+
+.mascota-info-container {
+  display: flex; /* Asegura que la imagen y la tabla estén en línea */
+  align-items: center; /* Alinea la parte superior de ambos elementos */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  margin-top: 20px; /* Espacio superior opcional */
+}
+
+.mascota-img-container {
+  width: 40%; /* Ajusta el tamaño de la imagen */
+  margin-right: 20px; /* Espacio entre la imagen y la tabla */
+}
+
+.mascota {
+  width: 50%; /* Ajusta el ancho de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border-radius: 20px; /* Redondea ligeramente las esquinas de la imagen */
+  margin-left: 25%;
+  border: 2px solid black;
+}
+
+.mascota-datos-container {
+  flex: 1; /* Permite que la tabla ocupe el espacio restante */
+  display: flex;
+  align-items: center; /* Alinea verticalmente el contenido de la tabla */
+  justify-content: center; /* Centra horizontalmente el contenido de la tabla */
+}
+
+.datosMascotaSection {
+  display: block;
+  margin-bottom: 20px; /* Espacio entre cada sección de datos de mascotas */
+}
+
+main {
+  width: 100%; /* Asegura que el main ocupe el 100% del ancho disponible */
+  margin: 0; /* Elimina márgenes que puedan limitar el ancho */
+  padding: 2%; /* Elimina el padding si lo hay */
+  background: linear-gradient(to bottom, #155274, #54859a);
+}
+
+.container {
+  width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho disponible */
+  background: linear-gradient(to bottom, #155274, #54859a);
+  padding: 2%;
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+  margin: 0; /* Elimina márgenes que puedan limitar el ancho */
+}
+
+.mascota-select {
+  width: 30%; /* Ajusta el ancho como desees */
+  padding: 10px; /* Agrega un poco de espacio interno */
+  font-size: 16px; /* Cambia el tamaño de la fuente */
+  border: 1px solid #000000; /* Estilo del borde */
+  border-radius: 5px; /* Bordes redondeados */
+  margin-left: 50px;
+}

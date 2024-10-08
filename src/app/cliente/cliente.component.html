@@ -2,7 +2,6 @@
   <img src="assets/images/LogoFin.png" alt="Logo" />
   <ul>
     <li><a routerLink="/login">Cerrar Sesión</a></li>
-    <!-- Usamos Angular Router -->
   </ul>
 </header>
 
@@ -38,58 +37,48 @@
     </tbody>
   </table>
 
-  <!-- Contenedor Flex para el título y el selector de mascotas
-  <div class="header-container">
-    <h1 class="tituloSeccion">Datos de las <span>Mascotas</span></h1>
+  <div class="form-group">
+    <label for="mascotaSelect" class="tituloSeccion">Selecciona una mascota:</label>
+    <select id="mascotaSelect" class="mascota-select form-control" (change)="mostrarMascota($event)">
+      <option value="">Seleccione una mascota</option>
+      <option *ngFor="let mascota of cliente?.mascotas" [value]="mascota.id">{{ mascota.nombre }}</option>
+    </select>
+  </div>
 
-     Selector de mascotas con Angular 
-    <div class="form-group ml-3">
-      <select
-        class="mascota-select form-control form-select"
-        (change)="mostrarMascota($event)"
-      >
-        <option *ngFor="let mascota of mascotas" [value]="mascota.id">
-          {{ mascota.nombre }}
-        </option>
-      </select>
-    </div>
-  </div> -->
-
-  <!-- Información de cada mascota -->
-  <div class="datosMascotaSection" *ngFor="let mascota of cliente.mascotas">
-    <!-- Contenedor de la imagen -->
-    <div class="mascota-img-container">
-      <img [src]="mascota.fotoURL" alt="Foto de la Mascota" class="mascota" />
-    </div>
-
-    <!-- Contenedor de los datos de la mascota -->
-    <div class="mascota-datos-container">
-      <table class="datosMascota">
-        <thead>
-          <tr>
-            <th class="headerTabla">Datos</th>
-            <th class="headerTabla">Información Personal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Nombre</th>
-            <td>{{ mascota.nombre }}</td>
-          </tr>
-          <tr>
-            <th>Raza</th>
-            <td>{{ mascota.raza }}</td>
-          </tr>
-          <tr>
-            <th>Edad</th>
-            <td>{{ mascota.edad }} años</td>
-          </tr>
-          <tr>
-            <th>Peso</th>
-            <td>{{ mascota.peso }} Kg</td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="datosMascotaSection" *ngIf="selectedMascota">
+    <h2 class="tituloSeccion">Información de la Mascota Seleccionada</h2>
+    <div class="mascota-info-container">
+      <div class="mascota-img-container">
+        <img [src]="selectedMascota.fotoURL" alt="Foto de la Mascota" class="mascota" />
+      </div>
+      <div class="mascota-datos-container">
+        <table class="datosMascota">
+          <thead>
+            <tr>
+              <th class="headerTabla">Datos</th>
+              <th class="headerTabla">Información Personal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Nombre</th>
+              <td>{{ selectedMascota.nombre }}</td>
+            </tr>
+            <tr>
+              <th>Raza</th>
+              <td>{{ selectedMascota.raza }}</td>
+            </tr>
+            <tr>
+              <th>Edad</th>
+              <td>{{ selectedMascota.edad }} años</td>
+            </tr>
+            <tr>
+              <th>Peso</th>
+              <td>{{ selectedMascota.peso }} Kg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </main>
