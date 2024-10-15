@@ -46,9 +46,6 @@ form {
   transition: transform 0.2s ease-in-out; /* Transición para darle vida */
 }
 
-form:hover {
-  transform: scale(1.02); /* Pequeño efecto de zoom al pasar el cursor */
-}
 
 form p {
   font-weight: 500;

@@ -10,7 +10,10 @@ import { AddMascotaComponent } from './mascota/add-mascota/add-mascota.component
 import { ModificarMascotaComponent } from './mascota/modificar-mascota/modificar-mascota.component';
 import { AddClienteComponent } from './cliente/add-cliente/add-cliente.component';
 import { ModificarClienteComponent } from './cliente/modificar-cliente/modificar-cliente.component';
-//import { AdministradorComponent } from './administrador/administrador.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,9 +25,11 @@ const routes: Routes = [
   { path: 'add-cliente', component: AddClienteComponent },
   { path: 'modificar-mascota/:id', component: ModificarMascotaComponent },
   { path: 'modificar-cliente/:id', component: ModificarClienteComponent },
-  //{ path: 'administrador', component: AdministradorComponent },
+  { path: 'admin', component: AdminHomeComponent },
   { path: 'cliente/:id', component: ClienteComponent },
+  { path: 'admin/negocio', component: AdminDashboardComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  
 ];
 
 @NgModule({
