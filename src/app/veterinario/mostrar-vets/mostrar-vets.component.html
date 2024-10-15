@@ -1,0 +1,67 @@
+<header>
+  <img src="assets/images/LogoFin.png" alt="Logo" />
+  <ul>
+    <li><a routerLink="/admin">Volver</a></li>
+  </ul>
+</header>
+
+<main class="inicio">
+  <div class="titulo">
+    <h1>Veterinarios</h1>
+    <a [routerLink]="['/add-vet']" type="button">
+      <img
+        src="assets/images/agregar.png"
+        alt="Add"
+        height="60px"
+        class="add"
+      />
+    </a>
+  </div>
+
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Cedula</th>
+          <th>Especialidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="justify-content-center" *ngFor="let vet of listaVets">
+          <td>
+            <img
+              src="{{ vet.fotoURL }}"
+              alt="veterinario"
+              style="width: 80px; height: 60px"
+            />
+          </td>
+          <td>{{ vet.nombre }}</td>
+          <td>{{ vet.cedula }}</td>
+          <td>{{ vet.especialidad }}</td>
+          <td class="botones">
+            <a
+              class="btn btn-outline-secondary"
+              [routerLink]="['/modificar-vet', vet.id]"
+            >
+              <img src="assets/images/editar.png" alt="Edit" height="40px" />
+            </a>
+
+            <a
+              class="btn btn-outline-danger"
+              (click)="eliminarVeterinario(vet)"
+            >
+              <img
+                src="assets/images/eliminar.png"
+                alt="Delete"
+                height="40px"
+              />
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

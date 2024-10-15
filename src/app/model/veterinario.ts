@@ -7,6 +7,4 @@ export interface Veterinario {
   clave: string;
   especialidad: string;
   fotoURL: string;
-  numAtenciones: number;
-  consulta?: Consulta[]; // Relación opcional con las consultas del veterinario
 }

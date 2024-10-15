@@ -7,7 +7,9 @@
 
 <main class="main">
   <section class="testimonials" id="vet">
-    <h1 class="titulo" id="nombreVet" *ngIf="veterinario">{{ veterinario.nombre }}</h1>
+    <h1 class="titulo" id="nombreVet" *ngIf="veterinario">
+      {{ veterinario.nombre }}
+    </h1>
     <h3 class="titulo">Escoja una de las siguientes opciones:</h3>
     <div class="textSecComents"></div>
 
@@ -32,7 +34,7 @@
 
       <!-- Comentado por error de 'veterinario' no definido, descomentar al conectar con backend -->
       <!-- <a [routerLink]="['/clientes', veterinario.id]" class="col"> -->
-      <a [routerLink]="['/clientes']" class="col">
+      <a [routerLink]="['clientes']" class="col">
         <div class="testimonial-box">
           <div class="box-top">
             <div class="profile">
@@ -50,7 +52,7 @@
         </div>
       </a>
 
-      <a [routerLink]="['/tratamientos']" class="col">
+      <a [routerLink]="['tratamientos']" class="col">
         <div class="testimonial-box">
           <div class="box-top">
             <div class="profile">

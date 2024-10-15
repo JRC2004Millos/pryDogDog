@@ -17,12 +17,14 @@ import { MostrarMascotasComponent } from './mascota/mostrar-mascotas/mostrar-mas
 import { MostrarClientesComponent } from './cliente/mostrar-clientes/mostrar-clientes.component';
 import { AddMascotaComponent } from './mascota/add-mascota/add-mascota.component';
 import { ModificarMascotaComponent } from './mascota/modificar-mascota/modificar-mascota.component';
-import { MascotaTableComponent } from './mascota/mascota-table/mascota-table.component';
 import { CarouselModule } from './carousel/carousel.module';
 import { AddClienteComponent } from './cliente/add-cliente/add-cliente.component';
 import { ModificarClienteComponent } from './cliente/modificar-cliente/modificar-cliente.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { MostrarVetsComponent } from './veterinario/mostrar-vets/mostrar-vets.component';
+import { AddVetComponent } from './veterinario/add-vet/add-vet.component';
+import { ModificarVetComponent } from './veterinario/modificar-vet/modificar-vet.component';
 
 @NgModule({
   declarations: [
@@ -36,23 +38,25 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
     MostrarClientesComponent,
     AddMascotaComponent,
     ModificarMascotaComponent,
-    MascotaTableComponent,
     AddClienteComponent,
     ModificarClienteComponent,
     AdminDashboardComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    MostrarVetsComponent,
+    AddVetComponent,
+    ModificarVetComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule, 
+    FormsModule,
     CarouselModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgChartsModule
+    NgChartsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
