@@ -11,12 +11,6 @@ import { VeterinarioService } from 'src/app/service/veterinario.service';
 export class AddVetComponent {
   constructor(private vetService: VeterinarioService, private router: Router) {}
 
-  addVet() {
-    this.vetService.add(this.formVet);
-    this.addVetEvent.emit(this.sendVet);
-    this.router.navigate(['/veterinarios']); // Redirige a la lista de mascotas
-  }
-
   @Output()
   addVetEvent = new EventEmitter<Veterinario>();
 
@@ -29,5 +23,12 @@ export class AddVetComponent {
     cedula: 0,
     fotoURL: '',
     clave: '',
+    confirmarClave: ''
   };
+
+  addVet() {
+    this.vetService.add(this.formVet).subscribe({
+      complete: () => this.router.navigate(['/veterinarios'])
+    });
+  }
 }

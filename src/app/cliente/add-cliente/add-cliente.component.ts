@@ -23,13 +23,8 @@ export class AddClienteComponent {
   };
 
   addCliente() {
-    // Llamamos al servicio para agregar el cliente sin necesidad de suscribirse
-    this.clienteService.addCliente(this.formCliente);
-    
-    // Emitimos el cliente recién agregado al componente padre
-    this.addClienteEvent.emit(this.formCliente);
-    
-    // Redirigir si es necesario
-    this.router.navigate(['/clientes']);
+    this.clienteService.addCliente(this.formCliente).subscribe({
+      complete: () => this.router.navigate(['/clientes'])
+    });
   }
 }

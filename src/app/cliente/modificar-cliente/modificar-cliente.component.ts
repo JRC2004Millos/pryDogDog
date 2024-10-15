@@ -10,7 +10,7 @@ import { ClienteService } from 'src/app/service/cliente.service';
 })
 export class ModificarClienteComponent {
 
-  formCliente = {
+  formCliente: Cliente = {
     id: 0,
     nombre: '',
     cedula: 0,
@@ -33,7 +33,8 @@ export class ModificarClienteComponent {
   }
 
   modificarCliente() {
-    this.clienteService.updateCliente(this.formCliente);
-    this.router.navigate(['/clientes']);
+    this.clienteService.updateCliente(this.formCliente).subscribe({
+      complete: () => this.router.navigate(['/clientes'])
+    });
   }
 }

@@ -33,16 +33,10 @@ export class MascotaService {
 
   addMascota(mascota: Mascota) {
     console.log(mascota); // Para verificar que el cliente está dentro de mascota
-    this.http
-      .post('http://localhost:8080/mascotas/agregar', mascota)
-      .subscribe((response) => {
-        console.log('Mascota registrada:', response);
-      });
+    return this.http.post<Mascota>('http://localhost:8080/mascotas/agregar', mascota);
   }
 
   updateMascota(mascota: Mascota) {
-    this.http
-      .put('http://localhost:8080/mascotas/modificar', mascota)
-      .subscribe();
+    return this.http.put<Mascota>('http://localhost:8080/mascotas/modificar', mascota);
   }
 }

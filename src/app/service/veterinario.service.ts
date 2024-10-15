@@ -29,9 +29,8 @@ export class VeterinarioService {
   }
 
   add(veterinario: Veterinario) {
-    this.http
-      .post('http://localhost:8080/veterinario/agregar', veterinario)
-      .subscribe();
+    return this.http
+      .post('http://localhost:8080/veterinario/agregar', veterinario);
   }
 
   findByCedula(cedula: number): Observable<Veterinario> {
@@ -40,7 +39,7 @@ export class VeterinarioService {
     );
   }
 
-  update(veterinario: Veterinario): Observable<Veterinario> {
+  update(veterinario: Veterinario) {
     return this.http.put<Veterinario>(
       'http://localhost:8080/veterinario/modificar',
       veterinario

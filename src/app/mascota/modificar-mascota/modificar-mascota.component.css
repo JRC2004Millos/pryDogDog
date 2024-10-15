@@ -8,12 +8,13 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Asegúrate de que sea 100vh */
-  background: linear-gradient(to bottom, #064469, #5790ab, #74aabf);
 }
 
 main {
   flex: 1; /* Hace que main ocupe el espacio disponible */
   padding: 20px; /* Agrega un poco de espacio alrededor del contenido de main */
+  background: linear-gradient(to bottom, #064469, #5790ab, #74aabf);
+
 }
 
 .container {

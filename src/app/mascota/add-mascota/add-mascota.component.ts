@@ -22,9 +22,9 @@ export class AddMascotaComponent /*implements OnInit*/ {
   }
 
   addMascota() {
-    this.mascotaService.addMascota(this.formMascota);
-    this.addMascotaEvent.emit(this.sendMascota);
-    this.router.navigate(['/mascotas']); // Redirige a la lista de mascotas
+    this.mascotaService.addMascota(this.formMascota).subscribe({
+      complete: () => this.router.navigate(['/mascotas'])
+    });
   }
 
   @Output()
