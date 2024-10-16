@@ -1,0 +1,57 @@
+<header>
+  <img src="assets/images/LogoFin.png" alt="Logo" />
+  <ul>
+    <li>
+      <a [routerLink]="['/veterinario']">Inicio</a>
+    </li>
+  </ul>
+</header>
+
+<main>
+  <div class="container">
+    <div id="cuadro">
+      <h1 class="mb-3">Registrar Tratamiento</h1>
+      <form #tratamientoForm="ngForm" (ngSubmit)="addTratamiento()">
+        <div class="row mb-3">
+          <label for="mascota" class="form-label">Mascota</label>
+          <select
+            class="form-select"
+            id="mascota"
+            name="mascota"
+            [(ngModel)]="formConsulta.mascota"
+            required
+          >
+            <option value="" disabled selected>Selecciona la mascota</option>
+            <option *ngFor="let mascota of mascotas" [ngValue]="mascota">
+              {{ mascota.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="droga" class="form-label">Droga</label>
+          <select
+            class="form-select"
+            id="droga"
+            name="droga"
+            [(ngModel)]="formConsulta.droga"
+            required
+          >
+            <option value="" disabled selected>Selecciona la droga</option>
+            <option *ngFor="let droga of drogas" [ngValue]="droga">
+              {{ droga.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-dark"
+          [disabled]="!tratamientoForm.form.valid"
+        >
+          Agregar
+        </button>
+      </form>
+    </div>
+  </div>
+</main>

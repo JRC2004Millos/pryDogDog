@@ -26,17 +26,21 @@ export class MascotaService {
   }
 
   deleteById(id: number) {
-    this.http
-      .delete('http://localhost:8080/mascotas/eliminar/' + id)
-      .subscribe();
+    return this.http.delete('http://localhost:8080/mascotas/eliminar/' + id);
   }
 
   addMascota(mascota: Mascota) {
     console.log(mascota); // Para verificar que el cliente está dentro de mascota
-    return this.http.post<Mascota>('http://localhost:8080/mascotas/agregar', mascota);
+    return this.http.post<Mascota>(
+      'http://localhost:8080/mascotas/agregar',
+      mascota
+    );
   }
 
   updateMascota(mascota: Mascota) {
-    return this.http.put<Mascota>('http://localhost:8080/mascotas/modificar', mascota);
+    return this.http.put<Mascota>(
+      'http://localhost:8080/mascotas/modificar',
+      mascota
+    );
   }
 }

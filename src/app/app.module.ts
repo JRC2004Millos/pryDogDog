@@ -25,6 +25,7 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { MostrarVetsComponent } from './veterinario/mostrar-vets/mostrar-vets.component';
 import { AddVetComponent } from './veterinario/add-vet/add-vet.component';
 import { ModificarVetComponent } from './veterinario/modificar-vet/modificar-vet.component';
+import { AddTratamientoComponent } from './tratamiento/add-tratamiento/add-tratamiento.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ModificarVetComponent } from './veterinario/modificar-vet/modificar-vet
     MostrarVetsComponent,
     AddVetComponent,
     ModificarVetComponent,
+    AddTratamientoComponent,
   ],
   imports: [
     BrowserModule,

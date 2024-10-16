@@ -7,17 +7,15 @@ import { mergeMap } from 'rxjs';
 @Component({
   selector: 'app-mostrar-mascotas',
   templateUrl: './mostrar-mascotas.component.html',
-  styleUrls: ['./mostrar-mascotas.component.css']
+  styleUrls: ['./mostrar-mascotas.component.css'],
 })
 export class MostrarMascotasComponent {
-
   listaMascotas!: Mascota[];
   mascota!: Mascota;
 
-  constructor(private mascotaService: MascotaService){  }
+  constructor(private mascotaService: MascotaService) {}
 
-  ngOnInit(): void{
-
+  ngOnInit(): void {
     this.mascotaService.findAll().subscribe((mascotas) => {
       this.listaMascotas = mascotas;
     });
@@ -25,8 +23,10 @@ export class MostrarMascotasComponent {
 
   eliminarMascota(mascota: Mascota): void {
     var index = this.listaMascotas.indexOf(mascota);
-    this.listaMascotas.splice(index, 1);
-    this.mascotaService.deleteById(mascota.id);
+    this.mascotaService.deleteById(mascota.id).subscribe(() => {
+      // Solo se quita de la lista cuando se complete la eliminación en el backend
+      this.listaMascotas.splice(index, 1);
+    });
   }
 
   modificarMascota(mascota: Mascota): void {
