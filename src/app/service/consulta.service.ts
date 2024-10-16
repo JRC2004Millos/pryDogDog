@@ -14,7 +14,7 @@ export class ConsultaService {
   }
 
   findById(id: number): Observable<Consulta> {
-    return this.http.get<Consulta>('http://localhost:8080/consultas/' + id);
+    return this.http.get<Consulta>('http://localhost:8080/consultas/ver/' + id);
   }
 
   deleteById(id: number) {

@@ -27,6 +27,7 @@ import { AddVetComponent } from './veterinario/add-vet/add-vet.component';
 import { ModificarVetComponent } from './veterinario/modificar-vet/modificar-vet.component';
 import { AddTratamientoComponent } from './tratamiento/add-tratamiento/add-tratamiento.component';
 import { MostrarTratamientosComponent } from './tratamiento/mostrar-tratamientos/mostrar-tratamientos.component';
+import { ModificarTratamientoComponent } from './tratamiento/modificar-tratamiento/modificar-tratamiento.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MostrarTratamientosComponent } from './tratamiento/mostrar-tratamientos
     ModificarVetComponent,
     AddTratamientoComponent,
     MostrarTratamientosComponent,
+    ModificarTratamientoComponent,
   ],
   imports: [
     BrowserModule,

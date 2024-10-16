@@ -21,9 +21,9 @@ export class DrogaService {
     return this.http.delete('http://localhost:8080/drogas/ver/' + id);
   }
 
-  addDroga(droga: Droga) {
-    return this.http.post('http://localhost:8080/drogas/crear', droga);
-  }
+  // addDroga(droga: Droga) {
+  //   return this.http.post('http://localhost:8080/drogas/crear', droga);
+  // }
 
   updateDroga(droga: Droga) {
     return this.http.put('http://localhost:8080/drogas/modificar', droga);
