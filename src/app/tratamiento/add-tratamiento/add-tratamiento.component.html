@@ -44,6 +44,39 @@
           </select>
         </div>
 
+        <div class="row mb-3">
+          <label for="veterinario" class="form-label">Veterinario</label>
+          <select
+            class="form-select"
+            id="veterinario"
+            name="veterinario"
+            [(ngModel)]="formConsulta.veterinario"
+            required
+          >
+            <option value="" disabled selected>
+              Selecciona el veterinario
+            </option>
+            <option
+              *ngFor="let veterinario of veterinarios"
+              [ngValue]="veterinario"
+            >
+              {{ veterinario.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="cantidad" class="form-label">Cantidad</label>
+          <input
+            type="number"
+            class="form-control"
+            id="cantidad"
+            name="cantidad"
+            [(ngModel)]="formConsulta.cantidad"
+            required
+          />
+        </div>
+
         <button
           type="submit"
           class="btn btn-dark"

@@ -2,99 +2,100 @@
   <img src="assets/images/LogoFin.png" alt="Logo" />
   <ul>
     <li>
-      <!-- Adaptar ruta a Angular -->
       <a [routerLink]="['/mascotas']">Inicio</a>
     </li>
   </ul>
 </header>
 
-<main class="container">
-  <div id="cuadro">
-    <h1>Modificar Mascota</h1>
-    <form #mascotaForm="ngForm" (ngSubmit)="modificarMascota()">
-      <div class="row mb-3">
-        <div class="col">
-          <label for="nombre" class="form-label">Nombre</label>
+<main>
+  <div class="container">
+    <div id="cuadro">
+      <h1>Modificar Mascota</h1>
+      <form #mascotaForm="ngForm" (ngSubmit)="modificarMascota()">
+        <div class="row mb-3">
+          <div class="col">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nombre"
+              name="nombre"
+              [(ngModel)]="formMascota.nombre"
+              required
+            />
+          </div>
+          <div class="col">
+            <label for="raza" class="form-label">Raza</label>
+            <input
+              type="text"
+              class="form-control"
+              id="raza"
+              name="raza"
+              [(ngModel)]="formMascota.raza"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="edad" class="form-label">Edad</label>
+            <input
+              type="number"
+              class="form-control"
+              id="edad"
+              name="edad"
+              [(ngModel)]="formMascota.edad"
+              required
+            />
+          </div>
+          <div class="col">
+            <label for="peso" class="form-label">Peso</label>
+            <input
+              type="number"
+              class="form-control"
+              id="peso"
+              name="peso"
+              step="0.1"
+              [(ngModel)]="formMascota.peso"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="enfermedad" class="form-label">Enfermedad</label>
+            <input
+              type="text"
+              class="form-control"
+              id="enfermedad"
+              name="enfermedad"
+              [(ngModel)]="formMascota.enfermedad"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="fotoURL" class="form-label">Foto</label>
           <input
             type="text"
             class="form-control"
-            id="nombre"
-            name="nombre"
-            [(ngModel)]="formMascota.nombre"
+            id="fotoURL"
+            name="fotoURL"
+            [(ngModel)]="formMascota.fotoURL"
             required
           />
         </div>
-        <div class="col">
-          <label for="raza" class="form-label">Raza</label>
-          <input
-            type="text"
-            class="form-control"
-            id="raza"
-            name="raza"
-            [(ngModel)]="formMascota.raza"
-            required
-          />
-        </div>
-      </div>
 
-      <div class="row mb-3">
-        <div class="col">
-          <label for="edad" class="form-label">Edad</label>
-          <input
-            type="number"
-            class="form-control"
-            id="edad"
-            name="edad"
-            [(ngModel)]="formMascota.edad"
-            required
-          />
-        </div>
-        <div class="col">
-          <label for="peso" class="form-label">Peso</label>
-          <input
-            type="number"
-            class="form-control"
-            id="peso"
-            name="peso"
-            step="0.1"
-            [(ngModel)]="formMascota.peso"
-            required
-          />
-        </div>
-      </div>
-
-      <div class="row mb-3">
-        <div class="col">
-          <label for="enfermedad" class="form-label">Enfermedad</label>
-          <input
-            type="text"
-            class="form-control"
-            id="enfermedad"
-            name="enfermedad"
-            [(ngModel)]="formMascota.enfermedad"
-          />
-        </div>
-      </div>
-
-      <div class="mb-3">
-        <label for="fotoURL" class="form-label">Foto</label>
-        <input
-          type="text"
-          class="form-control"
-          id="fotoURL"
-          name="fotoURL"
-          [(ngModel)]="formMascota.fotoURL"
-          required
-        />
-      </div>
-
-      <button
-        type="submit"
-        class="btn btn-dark"
-        [disabled]="!mascotaForm.form.valid"
-      >
-        Guardar cambios
-      </button>
-    </form>
+        <button
+          type="submit"
+          class="btn btn-dark"
+          [disabled]="!mascotaForm.form.valid"
+        >
+          Guardar cambios
+        </button>
+      </form>
+    </div>
   </div>
 </main>

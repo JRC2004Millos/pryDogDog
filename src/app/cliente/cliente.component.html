@@ -38,10 +38,18 @@
   </table>
 
   <div class="form-group">
-    <label for="mascotaSelect" class="tituloSeccion">Selecciona una mascota:</label>
-    <select id="mascotaSelect" class="mascota-select form-control" (change)="mostrarMascota($event)">
+    <label for="mascotaSelect" class="tituloSeccion"
+      >Selecciona una mascota:</label
+    >
+    <select
+      id="mascotaSelect"
+      class="mascota-select form-control"
+      (change)="mostrarMascota($event)"
+    >
       <option value="">Seleccione una mascota</option>
-      <option *ngFor="let mascota of cliente?.mascotas" [value]="mascota.id">{{ mascota.nombre }}</option>
+      <option *ngFor="let mascota of cliente?.mascotas" [value]="mascota.id">
+        {{ mascota.nombre }}
+      </option>
     </select>
   </div>
 
@@ -49,7 +57,11 @@
     <h2 class="tituloSeccion">Información de la Mascota Seleccionada</h2>
     <div class="mascota-info-container">
       <div class="mascota-img-container">
-        <img [src]="selectedMascota.fotoURL" alt="Foto de la Mascota" class="mascota" />
+        <img
+          [src]="selectedMascota.fotoURL"
+          alt="Foto de la Mascota"
+          class="mascota"
+        />
       </div>
       <div class="mascota-datos-container">
         <table class="datosMascota">
@@ -79,6 +91,19 @@
           </tbody>
         </table>
       </div>
+    </div>
+    <div class="consultasMascotaSection" *ngIf="consultas?.length">
+      <h2>Consultas de la Mascota</h2>
+      <ul>
+        <li *ngFor="let consulta of consultas">
+          Fecha: {{ consulta.fechaConsulta | date : "shortDate" }}, Veterinario:
+          {{ consulta.veterinario?.nombre }}, Droga:
+          {{ consulta.droga?.nombre }}
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="!consultas?.length">
+      <p>No hay consultas registradas para esta mascota.</p>
     </div>
   </div>
 </main>

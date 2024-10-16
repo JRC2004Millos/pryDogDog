@@ -16,6 +16,7 @@ import { MostrarVetsComponent } from './veterinario/mostrar-vets/mostrar-vets.co
 import { AddVetComponent } from './veterinario/add-vet/add-vet.component';
 import { ModificarVetComponent } from './veterinario/modificar-vet/modificar-vet.component';
 import { AddTratamientoComponent } from './tratamiento/add-tratamiento/add-tratamiento.component';
+import { MostrarTratamientosComponent } from './tratamiento/mostrar-tratamientos/mostrar-tratamientos.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'veterinarios', component: MostrarVetsComponent },
   { path: 'mascotas', component: MostrarMascotasComponent },
   { path: 'clientes', component: MostrarClientesComponent },
+  { path: 'tratamientos', component: MostrarTratamientosComponent },
   { path: 'add-mascota', component: AddMascotaComponent },
   { path: 'add-cliente', component: AddClienteComponent },
   { path: 'add-vet', component: AddVetComponent },

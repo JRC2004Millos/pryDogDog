@@ -5,6 +5,7 @@ export interface Droga {
   nombre: string;
   precioCompra: number;
   precioVenta: number;
-  unidades: number;
+  unidadesVendidas: number;
+  unidadesDisponibles: number;
   consulta?: Consulta[]; // Lista opcional de consultas asociadas a la droga
 }

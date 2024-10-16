@@ -10,7 +10,7 @@ export class ConsultaService {
   constructor(private http: HttpClient) {}
 
   findAll(): Observable<Consulta[]> {
-    return this.http.get<Consulta[]>('http://localhost:8080/consultas');
+    return this.http.get<Consulta[]>('http://localhost:8080/consultas/ver');
   }
 
   findById(id: number): Observable<Consulta> {

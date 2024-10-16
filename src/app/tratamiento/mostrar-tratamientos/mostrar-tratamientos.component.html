@@ -1,0 +1,66 @@
+<header>
+  <img src="assets/images/LogoFin.png" alt="Logo" />
+  <ul>
+    <li><a routerLink="/veterinario">Inicio</a></li>
+  </ul>
+</header>
+
+<main class="inicio">
+  <div class="titulo">
+    <h1>Tratamientos</h1>
+    <a [routerLink]="['/add-tratamiento']" type="button">
+      <img
+        src="assets/images/agregar.png"
+        alt="Add"
+        height="60px"
+        class="add"
+      />
+    </a>
+  </div>
+
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Mascota</th>
+          <th>Veterinario</th>
+          <th>Droga</th>
+          <th>Cantidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="justify-content-center"
+          *ngFor="let consulta of listaConsultas"
+        >
+          <td>{{ consulta.fechaConsulta | date : "dd/MM/yyyy, h:mm a" }}</td>
+          <td>{{ consulta.mascota?.nombre }}</td>
+          <td>{{ consulta.veterinario?.nombre }}</td>
+          <td>{{ consulta.droga?.nombre }}</td>
+          <td>{{ consulta.cantidad }}</td>
+          <td class="botones">
+            <a
+              class="btn btn-outline-secondary"
+              [routerLink]="['/modificar-tratamiento', consulta.id]"
+            >
+              <img src="assets/images/editar.png" alt="Edit" height="40px" />
+            </a>
+
+            <a
+              class="btn btn-outline-danger"
+              (click)="eliminarTratamiento(consulta)"
+            >
+              <img
+                src="assets/images/eliminar.png"
+                alt="Delete"
+                height="40px"
+              />
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

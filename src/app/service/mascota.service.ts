@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Mascota } from '../model/mascota';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Consulta } from '../model/consulta';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,12 @@ export class MascotaService {
     return this.http.put<Mascota>(
       'http://localhost:8080/mascotas/modificar',
       mascota
+    );
+  }
+
+  findConsultasByMascotaId(mascotaId: number): Observable<Consulta[]> {
+    return this.http.get<Consulta[]>(
+      'http://localhost:8080/consultas/mascota/' + mascotaId
     );
   }
 }

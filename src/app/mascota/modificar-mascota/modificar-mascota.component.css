@@ -12,7 +12,6 @@ body {
 }
 
 main {
-  margin: 0 0 0 0;
   flex: 1; /* Hace que main ocupe el espacio disponible */
   padding: 20px; /* Agrega un poco de espacio alrededor del contenido de main */
   background: linear-gradient(to bottom, #064469, #54859a);
