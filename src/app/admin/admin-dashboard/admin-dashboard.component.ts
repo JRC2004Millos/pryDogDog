@@ -7,6 +7,15 @@ import { Chart } from 'chart.js/auto';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
+  kpis = [
+    { title: 'Tratamientos Administrados Último Mes', value: 38 },
+    { title: 'Veterinarios Activos', value: 5 },
+    { title: 'Veterinarios Inactivos', value: 2 },
+    { title: 'Total de Mascotas', value: 120 },
+    { title: 'Mascotas en Tratamiento', value: 25 },
+    { title: 'Ventas Totales', value: '$5,000,000' },
+    { title: 'Ganancias Totales', value: '$2,500,000' }
+  ];
 
   ngOnInit(): void {
     this.createDoughnutChart();

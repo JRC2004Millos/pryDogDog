@@ -48,19 +48,23 @@
           />
         </div>
 
-        <!-- Campo editable para la cantidad -->
         <div class="row mb-3">
-          <label for="cantidad" class="form-label">Cantidad</label>
-          <input
-            type="number"
-            class="form-control"
+          <label for="cantidad">Cantidad</label>
+          <select
             id="cantidad"
+            class="form-control"
             name="cantidad"
             [(ngModel)]="formConsulta.cantidad"
-            required
-            min="1"
-          />
-        </div>
+            [disabled]="unidadesDisponibles.length === 0"
+          >
+            <option *ngFor="let cantidad of unidadesDisponibles" [value]="cantidad">
+              {{ cantidad }}
+            </option>
+          </select>
+          <p *ngIf="unidadesDisponibles.length === 0" class="text-danger">
+            No hay unidades disponibles para esta droga.
+          </p>
+        </div>        
 
         <button
           type="submit"

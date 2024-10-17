@@ -5,69 +5,43 @@
   </ul>
 </header>
 
-
-<div class="container-fluid">
+<main>
   <div class="row">
+    <h1 class="text-center mb-4" id="title">Dashboard de Administración</h1>
+  </div>
+
+  <div class="container mt-4 contenedor">
     <!-- Tarjetas de estadísticas -->
-    <div class="col-lg-4">
-      <div class="card text-center mb-4 shadow-sm card-hover">
-        <div class="card-body">
-          <i class="bi bi-person-badge-fill icon-card"></i>
-          <h5 class="card-title">Veterinarios Registrados</h5>
-          <p class="card-text display-4">24</p>
+    <div class="row mb-4">
+      <div class="col-lg-4" *ngFor="let kpi of kpis">
+        <div class="card text-center shadow-sm card-hover">
+          <div class="card-body">
+            <h5 class="card-title">{{ kpi.title }}</h5>
+            <p class="card-text display-4">{{ kpi.value }}</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
-      <div class="card text-center mb-4 shadow-sm card-hover">
-        <div class="card-body">
-          <i class="bi bi-heart-pulse-fill icon-card"></i>
-          <h5 class="card-title">Mascotas Atendidas</h5>
-          <p class="card-text display-4">145</p>
+
+    <!-- Gráficos -->
+    <div class="graficos">
+      <div class="row mb-4">
+        <div class="col-lg-6">
+          <h3 class="text-center">Distribución de Tratamientos</h3>
+          <canvas id="tratamientosDoughnut"></canvas>
+        </div>
+        <div class="col-lg-6">
+          <h3 class="text-center">Citas por Mes</h3>
+          <canvas id="evolucionCitasLine"></canvas>
+        </div>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-lg-12">
+          <h3 class="text-center">Comparativa de Atenciones por Veterinario</h3>
+          <canvas id="comparativaVeterinariosBar"></canvas>
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
-      <div class="card text-center mb-4 shadow-sm card-hover">
-        <div class="card-body">
-          <i class="bi bi-calendar-check-fill icon-card"></i>
-          <h5 class="card-title">Citas Agendadas</h5>
-          <p class="card-text display-4">30</p>
-        </div>
-      </div>
-    </div>
   </div>
-
-  <!-- Gráficos -->
-  <div class="container">
-    <h3 class="mt-4">Distribución de Tratamientos</h3>
-    <canvas id="tratamientosDoughnut"></canvas>
-  </div>
-
-  <div class="container">
-    <h3 class="mt-4">Evolución de Citas por Mes</h3>
-    <canvas id="evolucionCitasLine"></canvas>
-  </div>
-
-  <div class="container">
-    <h3 class="mt-4">Comparativa de Atenciones por Veterinario</h3>
-    <canvas id="comparativaVeterinariosBar"></canvas>
-  </div>
-
-  <!-- Lista de reportes recientes -->
-  <h3 class="mt-4">Reportes Recientes</h3>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
-      Reporte de Citas del Mes
-      <span class="badge bg-primary rounded-pill">Ver</span>
-    </li>
-    <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
-      Reporte de Tratamientos Pendientes
-      <span class="badge bg-primary rounded-pill">Ver</span>
-    </li>
-    <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
-      Reporte de Nuevos Clientes
-      <span class="badge bg-primary rounded-pill">Ver</span>
-    </li>
-  </ul>
-</div>
+</main>
