@@ -8,4 +8,5 @@ export interface Veterinario {
   confirmarClave?: string;
   especialidad: string;
   fotoURL: string;
+  estado: boolean;
 }

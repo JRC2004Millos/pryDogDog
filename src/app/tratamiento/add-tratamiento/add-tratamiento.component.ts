@@ -27,6 +27,7 @@ export class AddTratamientoComponent {
   mascotas!: Mascota[];
   drogas!: Droga[];
   veterinarios!: Veterinario[];
+  unidadesDisponibles: number[] = [];
 
   ngOnInit(): void {
     this.mascotaService.findAll().subscribe((mascotas) => {
@@ -51,6 +52,7 @@ export class AddTratamientoComponent {
       especialidad: '',
       fotoURL: '',
       clave: '',
+      estado: false,
     },
     mascota: {
       id: 0,
@@ -83,52 +85,59 @@ export class AddTratamientoComponent {
   }
 
   onDrogaSeleccionada(event: Event): void {
-    const selectedDrogaId = (event.target as HTMLSelectElement).value;
-    const drogaSeleccionada = this.drogas.find(
-      (droga) => droga.id === +selectedDrogaId
-    );
-    if (drogaSeleccionada) {
-      this.formConsulta.droga = drogaSeleccionada;
+    const selectedDroga = this.formConsulta.droga;
+
+    if (selectedDroga) {
+      this.generarOpcionesCantidad();
     }
   }
 
+  generarOpcionesCantidad(): void {
+    const maxCantidad = this.formConsulta.droga?.unidadesDisponibles || 0;
+    this.unidadesDisponibles = Array.from(
+      { length: maxCantidad },
+      (_, i) => i + 1
+    );
+    console.log('Opciones de cantidad generadas:', this.unidadesDisponibles);
+  }
+
   addTratamiento() {
-    if (this.formConsulta.cantidad <= 0) {
-      // Manejo de error: La cantidad debe ser mayor que 0
-      console.log('La cantidad debe ser mayor que 0.');
-    } else if (
-      this.formConsulta.cantidad >
-      (this.formConsulta.droga?.unidadesDisponibles || 0)
-    ) {
-      // Manejo de error: La cantidad no puede ser mayor que las unidades disponibles
-      console.log('La cantidad solicitada excede las unidades disponibles.');
+    if (this.formConsulta.droga) {
+      // Reducir las unidades disponibles y aumentar las unidades vendidas
+      this.formConsulta.droga.unidadesDisponibles -= this.formConsulta.cantidad;
+      this.formConsulta.droga.unidadesVendidas += this.formConsulta.cantidad;
+
+      // Llamada al servicio para actualizar la droga en el backend
+      this.drogaService.updateDroga(this.formConsulta.droga).subscribe(
+        (response) => {
+          console.log('Droga actualizada correctamente:', response);
+        },
+        (error) => {
+          console.error('Error al actualizar la droga:', error);
+        }
+      );
     } else {
-      // Todo está bien, proceder con la operación
-      if (this.formConsulta.droga) {
-        // Reducir las unidades disponibles y aumentar las unidades vendidas
-        this.formConsulta.droga.unidadesDisponibles -=
-          this.formConsulta.cantidad;
-        this.formConsulta.droga.unidadesVendidas += this.formConsulta.cantidad;
-
-        // Llamada al servicio para actualizar la droga en el backend
-        this.drogaService.updateDroga(this.formConsulta.droga).subscribe(
-          (response) => {
-            console.log('Droga actualizada correctamente:', response);
-          },
-          (error) => {
-            console.error('Error al actualizar la droga:', error);
-          }
-        );
-      } else {
-        console.log(
-          'No hay suficientes unidades disponibles o la cantidad solicitada es incorrecta.'
-        );
-      }
-
-      this.formConsulta.fechaConsulta = new Date();
-      this.consultaService.add(this.formConsulta).subscribe({
-        complete: () => this.router.navigate(['/tratamientos']),
-      });
+      console.log(
+        'No hay suficientes unidades disponibles o la cantidad solicitada es incorrecta.'
+      );
     }
+
+    if (this.formConsulta.veterinario) {
+      this.formConsulta.veterinario.estado = true;
+
+      this.veterinarioService.update(this.formConsulta.veterinario).subscribe(
+        (response) => {
+          console.log('Veterinario actualizado correctamente:', response);
+        },
+        (error) => {
+          console.error('Error al actualizar el veterinario:', error);
+        }
+      );
+    }
+
+    this.formConsulta.fechaConsulta = new Date();
+    this.consultaService.add(this.formConsulta).subscribe({
+      complete: () => this.router.navigate(['/tratamientos']),
+    });
   }
 }

@@ -16,7 +16,8 @@ export class ModificarVetComponent {
     cedula: 0,
     especialidad: '',
     fotoURL: '',
-    clave: ''
+    clave: '',
+    estado: false
   };
 
   vet!: Veterinario;

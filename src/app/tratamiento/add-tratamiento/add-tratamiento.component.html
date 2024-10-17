@@ -29,15 +29,14 @@
         </div>
 
         <div class="row mb-3">
-          <label for="droga" class="form-label">Droga</label>
+          <label for="droga">Seleccionar Droga</label>
           <select
-            class="form-select"
             id="droga"
+            class="form-control"
             name="droga"
             [(ngModel)]="formConsulta.droga"
-            required
+            (change)="onDrogaSeleccionada($event)"
           >
-            <option value="" disabled selected>Selecciona la droga</option>
             <option *ngFor="let droga of drogas" [ngValue]="droga">
               {{ droga.nombre }}
             </option>
@@ -66,16 +65,26 @@
         </div>
 
         <div class="row mb-3">
-          <label for="cantidad" class="form-label">Cantidad</label>
-          <input
-            type="number"
-            class="form-control"
+          <label for="cantidad">Cantidad</label>
+          <select
             id="cantidad"
+            class="form-control"
             name="cantidad"
             [(ngModel)]="formConsulta.cantidad"
-            required
-          />
-        </div>
+            [disabled]="!formConsulta.droga || unidadesDisponibles.length === 0"
+          >
+            <option *ngFor="let cantidad of unidadesDisponibles" [value]="cantidad">
+              {{ cantidad }}
+            </option>
+          </select>
+        
+          <!-- Mostrar el mensaje solo si hay una droga seleccionada -->
+          <p 
+          *ngIf="formConsulta.droga?.id && unidadesDisponibles.length === 0" 
+          class="text-danger">
+          No hay unidades disponibles para esta droga.
+        </p>
+        </div>        
 
         <button
           type="submit"

@@ -23,7 +23,8 @@ export class AddVetComponent {
     cedula: 0,
     fotoURL: '',
     clave: '',
-    confirmarClave: ''
+    confirmarClave: '',
+    estado: false,
   };
 
   addVet() {

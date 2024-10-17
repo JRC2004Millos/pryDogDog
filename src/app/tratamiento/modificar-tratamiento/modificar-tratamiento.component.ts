@@ -21,6 +21,7 @@ export class ModificarTratamientoComponent implements OnInit {
       especialidad: '',
       fotoURL: '',
       clave: '',
+      estado: false,
     },
     mascota: {
       id: 0,
