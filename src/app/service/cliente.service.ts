@@ -18,9 +18,9 @@ export class ClienteService {
     return this.http.get<Cliente>('http://localhost:8080/clientes/ver/' + id);
   }
 
-  deleteById(id: number) {
+  deleteById(id: number): Observable<any> {
     console.log(id);
-    this.http.delete('http://localhost:8080/clientes/eliminar/' + id).subscribe();
+    return this.http.delete('http://localhost:8080/clientes/eliminar/' + id);
   }
 
   addCliente(Cliente: Cliente) {

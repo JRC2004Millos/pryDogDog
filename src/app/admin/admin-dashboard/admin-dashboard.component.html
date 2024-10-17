@@ -1,30 +1,73 @@
 <header>
   <img src="assets/images/LogoFin.png" alt="Logo" />
   <ul>
-    <li><a routerLink="/admin">Volver</a></li>
+    <li><a routerLink="/home">Inicio</a></li>
   </ul>
 </header>
 
-<main>
-  <div class="barras">
-    <h2>Dashboard Administrador</h2>
-    <div>
-      <canvas
-        baseChart
-        [datasets]="barChartData"
-        [labels]="barChartLabels"
-        [options]="barChartOptions"
-        [legend]="barChartLegend"
-      >
-      </canvas>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Tarjetas de estadísticas -->
+    <div class="col-lg-4">
+      <div class="card text-center mb-4 shadow-sm card-hover">
+        <div class="card-body">
+          <i class="bi bi-person-badge-fill icon-card"></i>
+          <h5 class="card-title">Veterinarios Registrados</h5>
+          <p class="card-text display-4">24</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card text-center mb-4 shadow-sm card-hover">
+        <div class="card-body">
+          <i class="bi bi-heart-pulse-fill icon-card"></i>
+          <h5 class="card-title">Mascotas Atendidas</h5>
+          <p class="card-text display-4">145</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card text-center mb-4 shadow-sm card-hover">
+        <div class="card-body">
+          <i class="bi bi-calendar-check-fill icon-card"></i>
+          <h5 class="card-title">Citas Agendadas</h5>
+          <p class="card-text display-4">30</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="torta">
-    <h2>Dashboard Administrador</h2>
-    <div>
-      <canvas baseChart [data]="pieChartData" [options]="pieChartOptions">
-      </canvas>
-    </div>
+  <!-- Gráficos -->
+  <div class="container">
+    <h3 class="mt-4">Distribución de Tratamientos</h3>
+    <canvas id="tratamientosDoughnut"></canvas>
   </div>
-</main>
+
+  <div class="container">
+    <h3 class="mt-4">Evolución de Citas por Mes</h3>
+    <canvas id="evolucionCitasLine"></canvas>
+  </div>
+
+  <div class="container">
+    <h3 class="mt-4">Comparativa de Atenciones por Veterinario</h3>
+    <canvas id="comparativaVeterinariosBar"></canvas>
+  </div>
+
+  <!-- Lista de reportes recientes -->
+  <h3 class="mt-4">Reportes Recientes</h3>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
+      Reporte de Citas del Mes
+      <span class="badge bg-primary rounded-pill">Ver</span>
+    </li>
+    <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
+      Reporte de Tratamientos Pendientes
+      <span class="badge bg-primary rounded-pill">Ver</span>
+    </li>
+    <li class="list-group-item list-hover d-flex justify-content-between align-items-center">
+      Reporte de Nuevos Clientes
+      <span class="badge bg-primary rounded-pill">Ver</span>
+    </li>
+  </ul>
+</div>

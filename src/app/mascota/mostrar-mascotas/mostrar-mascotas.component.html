@@ -9,13 +9,22 @@
   <div class="titulo">
     <h1>Mascotas</h1>
     <a [routerLink]="['/add-mascota']" type="button">
-      <img
-        src="assets/images/agregar.png"
-        alt="Add"
-        height="60px"
-        class="add"
-      />
+      <img src="assets/images/agregar.png" alt="Add" height="60px" class="add" />
     </a>
+  </div>
+
+  <!-- Barra de búsqueda -->
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Buscar mascota por nombre o raza"
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="buscarMascota()"
+    />
+    <button type="button" class="search-btn" (click)="buscarMascota()">
+      Buscar
+    </button>
   </div>
 
   <div class="container">
@@ -32,12 +41,7 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Error comentado: Property 'mascotas' does not exist -->
-        <!-- <tr *ngFor="let mascota of mascotas" class="justify-content-center"> -->
-        <tr
-          class="justify-content-center"
-          *ngFor="let mascota of listaMascotas"
-        >
+        <tr class="justify-content-center" *ngFor="let mascota of listaFiltrada">
           <td>
             <img
               src="{{ mascota.fotoURL }}"
@@ -51,26 +55,11 @@
           <td>{{ mascota.peso }}</td>
           <td>{{ mascota.enfermedad }}</td>
           <td class="botones">
-            <!-- Error comentado: Property 'veterinarioId' does not exist -->
-            <!-- <a class="btn btn-outline-secondary" [routerLink]="['/mascotas/modificar', mascota.id, { veterinarioId }]"> -->
-            <a
-              class="btn btn-outline-secondary"
-              [routerLink]="['/modificar-mascota', mascota.id]"
-            >
+            <a class="btn btn-outline-secondary" [routerLink]="['/modificar-mascota', mascota.id]">
               <img src="assets/images/editar.png" alt="Edit" height="40px" />
             </a>
-
-            <!-- Error comentado: Property 'veterinarioId' does not exist -->
-            <!-- <a class="btn btn-outline-danger" [routerLink]="['/mascotas/eliminar', mascota.id, { veterinarioId }]"> -->
-            <a
-              class="btn btn-outline-danger"
-              (click)="eliminarMascota(mascota)"
-            >
-              <img
-                src="assets/images/eliminar.png"
-                alt="Delete"
-                height="40px"
-              />
+            <a class="btn btn-outline-danger" (click)="eliminarMascota(mascota)">
+              <img src="assets/images/eliminar.png" alt="Delete" height="40px" />
             </a>
           </td>
         </tr>

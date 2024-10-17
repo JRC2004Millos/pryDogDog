@@ -18,10 +18,22 @@
     </a>
   </div>
 
+  <!-- Barra de búsqueda -->
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Buscar cliente por nombre o cédula"
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="buscarCliente()"
+    />
+    <button type="button" class="search-btn" (click)="buscarCliente()">
+      Buscar
+    </button>
+  </div>
+
   <div class="container">
-    <table
-      class="table mx-auto text-center justify-content-center align-items-center"
-    >
+    <table class="table mx-auto text-center justify-content-center align-items-center">
       <thead>
         <tr>
           <th>Nombre</th>
@@ -32,31 +44,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr
-          class="justify-content-center"
-          *ngFor="let cliente of listaClientes"
-        >
+        <tr *ngFor="let cliente of listaFiltrada">
           <td>{{ cliente.nombre }}</td>
           <td>{{ cliente.cedula }}</td>
           <td>{{ cliente.celular }}</td>
           <td>{{ cliente.email }}</td>
           <td class="botones">
-            <a
-              class="btn btn-outline-secondary"
-              [routerLink]="['/modificar-cliente', cliente.id]"
-            >
+            <a class="btn btn-outline-secondary" [routerLink]="['/modificar-cliente', cliente.id]">
               <img src="assets/images/editar.png" alt="Edit" height="40px" />
             </a>
-
-            <a
-              class="btn btn-outline-danger"
-              (click)="eliminarCliente(cliente)"
-            >
-              <img
-                src="assets/images/eliminar.png"
-                alt="Delete"
-                height="40px"
-              />
+            <a class="btn btn-outline-danger" (click)="eliminarCliente(cliente)">
+              <img src="assets/images/eliminar.png" alt="Delete" height="40px" />
             </a>
           </td>
         </tr>

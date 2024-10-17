@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Mascota } from '../../model/mascota';
 import { MascotaService } from '../../service/mascota.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { mergeMap } from 'rxjs';
 
 @Component({
   selector: 'app-mostrar-mascotas',
@@ -10,27 +8,34 @@ import { mergeMap } from 'rxjs';
   styleUrls: ['./mostrar-mascotas.component.css'],
 })
 export class MostrarMascotasComponent {
-  listaMascotas!: Mascota[];
-  mascota!: Mascota;
+  listaMascotas: Mascota[] = [];
+  listaFiltrada: Mascota[] = [];
+  searchTerm: string = '';
 
   constructor(private mascotaService: MascotaService) {}
 
   ngOnInit(): void {
     this.mascotaService.findAll().subscribe((mascotas) => {
       this.listaMascotas = mascotas;
+      this.listaFiltrada = mascotas; // Inicialmente, la lista filtrada contiene todas las mascotas
     });
   }
 
   eliminarMascota(mascota: Mascota): void {
-    var index = this.listaMascotas.indexOf(mascota);
+    const index = this.listaMascotas.indexOf(mascota);
     this.mascotaService.deleteById(mascota.id).subscribe(() => {
-      // Solo se quita de la lista cuando se complete la eliminación en el backend
-      this.listaMascotas.splice(index, 1);
+      if (index !== -1) {
+        this.listaMascotas.splice(index, 1);
+        this.listaFiltrada = [...this.listaMascotas]; // Actualiza la lista filtrada
+      }
     });
   }
 
-  modificarMascota(mascota: Mascota): void {
-    var index = this.listaMascotas.indexOf(mascota);
-    this.listaMascotas[index] = mascota;
+  buscarMascota(): void {
+    const term = this.searchTerm.toLowerCase();
+    this.listaFiltrada = this.listaMascotas.filter((mascota) =>
+      mascota.nombre.toLowerCase().includes(term) ||
+      mascota.raza.toLowerCase().includes(term)
+    );
   }
 }

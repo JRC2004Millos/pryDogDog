@@ -1,53 +1,76 @@
-import { Component } from '@angular/core';
-import { ChartData, ChartOptions, ChartType } from 'chart.js';  // Asegúrate de importar ChartType
+import { Component, OnInit } from '@angular/core';
+import { Chart } from 'chart.js/auto';
 
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.css']
 })
+export class AdminDashboardComponent implements OnInit {
 
-export class AdminDashboardComponent {
-  public barChartOptions = {
-    responsive: true,
-  };
+  ngOnInit(): void {
+    this.createDoughnutChart();
+    this.createLineChart();
+    this.createBarChart();
+  }
 
-  public pieChartOptions: ChartOptions<'pie'> = {
-    responsive: true,
-  };
+  createDoughnutChart() {
+    const ctx = document.getElementById('tratamientosDoughnut') as HTMLCanvasElement;
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Vacunaciones', 'Castraciones', 'Consultas Generales'],
+        datasets: [{
+          data: [30, 20, 50],
+          backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' }
+        }
+      }
+    });
+  }
 
-  /*-------------------------------------GRAFICO DE BARRAS---------------------------------*/ 
-   // Etiquetas del gráfico (eje X)
-   public barChartLabels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
+  createLineChart() {
+    const ctx = document.getElementById('evolucionCitasLine') as HTMLCanvasElement;
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+        datasets: [{
+          label: 'Citas por Mes',
+          data: [50, 60, 80, 90, 110, 150],
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  }
 
-   // Tipo de gráfico
-   public barChartType: ChartType = 'bar';  // Asegúrate de usar ChartType
-   public barChartLegend = true;
- 
-   // Datos del gráfico
-   public barChartData = [
-     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Ventas' },
-     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Gastos' }
-   ];
- 
-   // Colores para las barras
-   public barChartColors = [
-     { backgroundColor: 'rgba(75, 192, 192, 0.6)', borderColor: 'rgba(75, 192, 192, 1)' },
-     { backgroundColor: 'rgba(153, 102, 255, 0.6)', borderColor: 'rgba(153, 102, 255, 1)' }
-   ];
-
-  /*-------------------------------------GRAFICO DE TORTA---------------------------------*/ 
-
-   // Cambiamos el tipo de gráfico a ChartType
-   public pieChartType: ChartType = 'pie';  // Asegúrate de que sea del tipo correcto
-
-   // Asignamos las etiquetas directamente en pieChartData
-   public pieChartData: ChartData<'pie', number[], string | string[]> = {
-      labels: ['Ventas', 'Gastos', 'Ganancias'],  // Asignamos directamente las etiquetas aquí
-      datasets: [{
-        data: [300, 500, 200],  // Asegúrate de que es un array dentro de datasets
-        backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)'],
-        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
-      }]
-   };
+  createBarChart() {
+    const ctx = document.getElementById('comparativaVeterinariosBar') as HTMLCanvasElement;
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Veterinario A', 'Veterinario B', 'Veterinario C', 'Veterinario D'],
+        datasets: [{
+          label: 'Número de Atenciones',
+          data: [200, 150, 180, 220],
+          backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(255, 99, 132, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(54, 162, 235, 0.6)']
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  }
 }

@@ -168,3 +168,33 @@ body {
 .inicio {
   background: linear-gradient(to bottom, #064469, #54859a);
 }
+
+
+.search-input {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2%;
+}
+
+.search-btn {
+  background-color: #007bff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.search-btn:hover {
+  transform: scale(1.2);
+}
