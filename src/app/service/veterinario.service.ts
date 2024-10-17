@@ -45,4 +45,11 @@ export class VeterinarioService {
       veterinario
     );
   }
+  
+  // NUEVO MÉTODO PARA OBTENER ACTIVOS E INACTIVOS
+  getActivosInactivos(): Observable<{ activos: number; inactivos: number }> {
+    return this.http.get<{ activos: number; inactivos: number }>(
+      'http://localhost:8080/veterinario/activosInactivos'
+    );
+  }
 }

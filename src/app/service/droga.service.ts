@@ -28,4 +28,12 @@ export class DrogaService {
   updateDroga(droga: Droga) {
     return this.http.put('http://localhost:8080/drogas/modificar', droga);
   }
+
+  getVentasTotales(): Observable<number> {
+    return this.http.get<number>(`http://localhost:8080/drogas/ventas-totales`);
+  }
+
+  getGananciasTotales(): Observable<number> {
+    return this.http.get<number>(`http://localhost:8080/drogas/ganancias-totales`);
+  }
 }

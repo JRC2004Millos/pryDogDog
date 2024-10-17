@@ -1,33 +1,31 @@
+/* General Styles */
 html {
   min-height: 100%;
   position: relative;
-  margin: 0; /* Asegúrate de que el HTML no tenga márgenes */
+  margin: 0;
 }
 
 body {
-  margin: 0; /* Elimina márgenes por defecto */
-  padding-bottom: 120px; /* Espacio suficiente para el footer */
+  margin: 0;
+  padding-bottom: 120px;
   box-sizing: border-box;
 }
 
+/* Header Styles */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #155274;
   height: 100px;
-  width: 100%; /* Asegura que el header ocupe el 100% del ancho disponible */
-  margin: 0; /* Elimina márgenes que puedan limitar el ancho */
-  padding: 0; /* Elimina el padding si lo hay */
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 header img {
   height: 80%;
   margin-left: 20px;
-}
-
-a {
-  margin: 10px;
 }
 
 header > ul {
@@ -56,6 +54,15 @@ header a {
   text-decoration: none;
 }
 
+/* Main Styles */
+main {
+  width: 100%;
+  margin: 0;
+  padding: 2%;
+  background: linear-gradient(to bottom, #155274, #54859a);
+}
+
+/* Table Styles */
 .datosPersonales {
   margin: 3% auto;
   width: 70%;
@@ -69,106 +76,90 @@ header a {
   text-align: center;
 }
 
-td {
+td, th {
   padding: 8px;
   text-align: center;
-  border: 1px solid #000000;
-  font-size: 30px;
-}
-
-th {
-  border: 1px solid #000000;
-  padding: 8px;
-  color: black;
-  font-weight: bold;
+  border: 1px solid #000;
   font-size: 30px;
 }
 
 tr:nth-child(even) {
   background-color: #91cbe4;
-  color: black;
 }
 
 tr:nth-child(odd) {
   background-color: #80c6e9;
-  color: black;
 }
 
 .tituloSeccion {
   margin-left: 50px;
   font-size: 40px;
   color: white;
-  margin-top: 1%;
-  margin-bottom: 1%;
 }
 
-.contenidoIzq {
-  text-align: center;
-}
-
-.infoMascota {
-  display: flex;
-}
-
-.header-container {
+/* Mascota Section Styles */
+.mascota-info-container {
   display: flex;
   align-items: center;
-  gap: 200px;
-  margin-bottom: 20px;
-}
-
-.mascota-info-container {
-  display: flex; /* Asegura que la imagen y la tabla estén en línea */
-  align-items: center; /* Alinea la parte superior de ambos elementos */
-  justify-content: center; /* Centra horizontalmente el contenido */
-  margin-top: 20px; /* Espacio superior opcional */
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .mascota-img-container {
-  width: 40%; /* Ajusta el tamaño de la imagen */
-  margin-right: 20px; /* Espacio entre la imagen y la tabla */
+  width: 40%;
+  margin-right: 20px;
 }
 
 .mascota {
-  width: 50%; /* Ajusta el ancho de la imagen */
-  height: auto; /* Mantiene la proporción de la imagen */
-  border-radius: 20px; /* Redondea ligeramente las esquinas de la imagen */
+  width: 50%;
+  height: auto;
+  border-radius: 20px;
   margin-left: 25%;
   border: 2px solid black;
 }
 
 .mascota-datos-container {
-  flex: 1; /* Permite que la tabla ocupe el espacio restante */
+  flex: 1;
   display: flex;
-  align-items: center; /* Alinea verticalmente el contenido de la tabla */
-  justify-content: center; /* Centra horizontalmente el contenido de la tabla */
+  align-items: center;
+  justify-content: center;
 }
 
 .datosMascotaSection {
-  display: block;
-  margin-bottom: 20px; /* Espacio entre cada sección de datos de mascotas */
+  margin-top: 40px;
 }
 
-main {
-  width: 100%; /* Asegura que el main ocupe el 100% del ancho disponible */
-  margin: 0; /* Elimina márgenes que puedan limitar el ancho */
-  padding: 2%; /* Elimina el padding si lo hay */
-  background: linear-gradient(to bottom, #155274, #54859a);
+.consultasMascotaSection {
+  margin-top: 20px;
 }
 
-.container {
-  width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho disponible */
-  background: linear-gradient(to bottom, #155274, #54859a);
-  padding: 2%;
-  box-sizing: border-box; /* Incluye el padding en el ancho total */
-  margin: 0; /* Elimina márgenes que puedan limitar el ancho */
-}
-
+/* Select Styles */
 .mascota-select {
-  width: 30%; /* Ajusta el ancho como desees */
-  padding: 10px; /* Agrega un poco de espacio interno */
-  font-size: 16px; /* Cambia el tamaño de la fuente */
-  border: 1px solid #000000; /* Estilo del borde */
-  border-radius: 5px; /* Bordes redondeados */
+  width: 30%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #000;
+  border-radius: 5px;
   margin-left: 50px;
+}
+
+.texto{
+  margin-left: 50px;
+  font-size: 25px;
+  color: #064469;
+}
+
+.consultasMascotaSection ul {
+  list-style-type: none;
+}
+
+.consultasMascotaSection{
+  justify-content: center;
+  align-items: center;
+}
+
+.datosTratamiento{
+  width: 50%;
+  border-collapse: collapse;
+  font-size: 30px;
 }

@@ -12,12 +12,20 @@
 
   <div class="container mt-4 contenedor">
     <!-- Tarjetas de estadísticas -->
-    <div class="row mb-4">
+    <div class="row mb-4 cards-container">
       <div class="col-lg-4" *ngFor="let kpi of kpis">
-        <div class="card text-center shadow-sm card-hover">
+        <div class="card text-center shadow-sm card-hover mb-4">
           <div class="card-body">
             <h5 class="card-title">{{ kpi.title }}</h5>
-            <p class="card-text display-4">{{ kpi.value }}</p>
+            <p class="card-text display-4">
+              <!-- Verificar si es un valor numérico o string -->
+              <ng-container *ngIf="kpi.title.includes('Ventas') || kpi.title.includes('Ganancias'); else numero">
+                {{ kpi.value | currency:'USD':'symbol':'1.2-2' }}
+              </ng-container>
+              <ng-template #numero>
+                {{ kpi.value }}
+              </ng-template>
+            </p>
           </div>
         </div>
       </div>
@@ -25,17 +33,6 @@
 
     <!-- Gráficos -->
     <div class="graficos">
-      <div class="row mb-4">
-        <div class="col-lg-6">
-          <h3 class="text-center">Distribución de Tratamientos</h3>
-          <canvas id="tratamientosDoughnut"></canvas>
-        </div>
-        <div class="col-lg-6">
-          <h3 class="text-center">Citas por Mes</h3>
-          <canvas id="evolucionCitasLine"></canvas>
-        </div>
-      </div>
-
       <div class="row mb-4">
         <div class="col-lg-12">
           <h3 class="text-center">Comparativa de Atenciones por Veterinario</h3>

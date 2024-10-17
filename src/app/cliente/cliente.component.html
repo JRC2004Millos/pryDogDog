@@ -38,9 +38,7 @@
   </table>
 
   <div class="form-group">
-    <label for="mascotaSelect" class="tituloSeccion"
-      >Selecciona una mascota:</label
-    >
+    <label for="mascotaSelect" class="tituloSeccion">Selecciona una mascota:</label>
     <select
       id="mascotaSelect"
       class="mascota-select form-control"
@@ -92,18 +90,39 @@
         </table>
       </div>
     </div>
-    <div class="consultasMascotaSection" *ngIf="consultas?.length">
-      <h2>Consultas de la Mascota</h2>
-      <ul>
-        <li *ngFor="let consulta of consultas">
-          Fecha: {{ consulta.fechaConsulta | date : "shortDate" }}, Veterinario:
-          {{ consulta.veterinario?.nombre }}, Droga:
-          {{ consulta.droga?.nombre }}
+
+    <!-- Sección de Consultas -->
+    <div class="consultasMascotaSection">
+      <h2 class="tituloSeccion">Consultas de la Mascota</h2>
+      <ul *ngIf="consultas?.length; else noConsultas">
+        <li *ngFor="let consulta of consultas" class="texto">
+          <table class="datosTratamiento">
+            <thead>
+              <tr>
+                <th class="headerTabla">Datos</th>
+                <th class="headerTabla">Información Tratamiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Fecha</th>
+                <td>{{ consulta.fechaConsulta | date : 'shortDate' }}</td>
+              </tr>
+              <tr>
+                <th>Veterinario</th>
+                <td>{{ consulta.veterinario?.nombre }}</td>
+              </tr>
+              <tr>
+                <th>Droga</th>
+                <td>{{ consulta.droga?.nombre }} </td>
+              </tr>
+            </tbody>
+          </table>
         </li>
       </ul>
-    </div>
-    <div *ngIf="!consultas?.length">
-      <p>No hay consultas registradas para esta mascota.</p>
+      <ng-template #noConsultas>
+        <p class="texto">No hay consultas registradas para esta mascota.</p>
+      </ng-template>
     </div>
   </div>
 </main>
