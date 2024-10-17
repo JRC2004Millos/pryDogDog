@@ -24,7 +24,7 @@ export class AddVetComponent {
     fotoURL: '',
     clave: '',
     confirmarClave: '',
-    estado: false,
+    estado: true,
   };
 
   addVet() {

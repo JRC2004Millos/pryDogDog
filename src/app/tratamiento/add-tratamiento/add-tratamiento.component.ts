@@ -36,8 +36,9 @@ export class AddTratamientoComponent {
     this.drogaService.findAll().subscribe((drogas) => {
       this.drogas = drogas;
     });
+    // Filtrar solo los veterinarios activos
     this.veterinarioService.findAll().subscribe((veterinarios) => {
-      this.veterinarios = veterinarios;
+      this.veterinarios = veterinarios.filter((vet) => vet.estado === true);
     });
   }
 
@@ -119,19 +120,6 @@ export class AddTratamientoComponent {
     } else {
       console.log(
         'No hay suficientes unidades disponibles o la cantidad solicitada es incorrecta.'
-      );
-    }
-
-    if (this.formConsulta.veterinario) {
-      this.formConsulta.veterinario.estado = true;
-
-      this.veterinarioService.update(this.formConsulta.veterinario).subscribe(
-        (response) => {
-          console.log('Veterinario actualizado correctamente:', response);
-        },
-        (error) => {
-          console.error('Error al actualizar el veterinario:', error);
-        }
       );
     }
 

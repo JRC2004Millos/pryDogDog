@@ -1,110 +1,122 @@
 <header>
-    <img src="assets/images/LogoFin.png" alt="Logo" />
-    <ul>
-      <li>
-        <a [routerLink]="['/veterinarios']">Inicio</a>
-      </li>
-    </ul>
-  </header>
-  
-  <main>
-    <div class="container">
-      <div id="cuadro">
-        <h1>Modificar Veterinario</h1>
-        <form #vetForm="ngForm" (ngSubmit)="modificarVet()">
-          <div class="row mb-3">
-            <div class="col">
-              <label for="nombre" class="form-label">Nombre</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nombre"
-                name="nombre"
-                placeholder="Nombre"
-                [(ngModel)]="formVet.nombre"
-                required
-              />
-            </div>
-            <div class="col">
-              <label for="cedula" class="form-label">Cédula</label>
-              <input
-                type="number"
-                class="form-control"
-                id="cedula"
-                name="cedula"
-                placeholder="cedula"
-                [(ngModel)]="formVet.cedula"
-                required
-              />
-            </div>
+  <img src="assets/images/LogoFin.png" alt="Logo" />
+  <ul>
+    <li>
+      <a [routerLink]="['/veterinarios']">Inicio</a>
+    </li>
+  </ul>
+</header>
+
+<main>
+  <div class="container">
+    <div id="cuadro">
+      <h1>Modificar Veterinario</h1>
+      <form #vetForm="ngForm" (ngSubmit)="modificarVet()">
+        <div class="row mb-3">
+          <div class="col">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nombre"
+              name="nombre"
+              placeholder="Nombre"
+              [(ngModel)]="formVet.nombre"
+              required
+            />
           </div>
-  
-          <div class="row mb-3">
-            <div class="col">
-              <label for="especialidad" class="form-label">Especialidad</label>
-              <input
-                type="text"
-                class="form-control"
-                id="especialidad"
-                name="especialidad"
-                placeholder="Especialidad"
-                [(ngModel)]="formVet.especialidad"
-              />
-            </div>
-  
-            <div class="col">
-              <label for="fotoURL" class="form-label">Foto</label>
-              <input
-                type="text"
-                class="form-control"
-                id="fotoURL"
-                name="fotoURL"
-                placeholder="URL de la imagen del veterinario"
-                [(ngModel)]="formVet.fotoURL"
-                required
-              />
-            </div>
+          <div class="col">
+            <label for="cedula" class="form-label">Cédula</label>
+            <input
+              type="number"
+              class="form-control"
+              id="cedula"
+              name="cedula"
+              placeholder="cedula"
+              [(ngModel)]="formVet.cedula"
+              required
+            />
           </div>
-  
-          <div class="row mb-3">
-            <div class="col">
-              <label for="clave" class="form-label">Clave</label>
-              <input
-                type="text"
-                class="form-control"
-                id="clave"
-                name="clave"
-                placeholder="Clave"
-                [(ngModel)]="formVet.clave"
-                required
-              />
-            </div>
-  
-            <div class="col">
-              <label for="confirmarClave" class="form-label"
-                >Confirmar Clave</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="confirmarClave"
-                name="Confirmar Clave"
-                placeholder="Confirmar Clave"
-                [(ngModel)]="formVet.confirmarClave"
-                required
-              />
-            </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="especialidad" class="form-label">Especialidad</label>
+            <input
+              type="text"
+              class="form-control"
+              id="especialidad"
+              name="especialidad"
+              placeholder="Especialidad"
+              [(ngModel)]="formVet.especialidad"
+            />
           </div>
-  
-          <button
-            type="submit"
-            class="btn btn-dark"
-            [disabled]="!vetForm.form.valid"
-          >
-            Agregar
-          </button>
-        </form>
-      </div>
+
+          <div class="col">
+            <label for="estado" class="form-label">Estado</label>
+            <select 
+              class="form-control" 
+              id="estado" 
+              name="estado" 
+              [(ngModel)]="formVet.estado" 
+              required>
+              <option [value]="true">Activo</option>
+              <option [value]="false">Inactivo</option>
+            </select>
+          </div>          
+
+          <div class="col">
+            <label for="fotoURL" class="form-label">Foto</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fotoURL"
+              name="fotoURL"
+              placeholder="URL de la imagen del veterinario"
+              [(ngModel)]="formVet.fotoURL"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <label for="clave" class="form-label">Clave</label>
+            <input
+              type="text"
+              class="form-control"
+              id="clave"
+              name="clave"
+              placeholder="Clave"
+              [(ngModel)]="formVet.clave"
+              required
+            />
+          </div>
+
+          <div class="col">
+            <label for="confirmarClave" class="form-label"
+              >Confirmar Clave</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="confirmarClave"
+              name="Confirmar Clave"
+              placeholder="Confirmar Clave"
+              [(ngModel)]="formVet.confirmarClave"
+              required
+            />
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-dark"
+          [disabled]="!vetForm.form.valid"
+        >
+          Agregar
+        </button>
+      </form>
     </div>
-  </main>
-  
+  </div>
+</main>
