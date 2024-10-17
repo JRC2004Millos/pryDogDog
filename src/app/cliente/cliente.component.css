@@ -162,4 +162,5 @@ tr:nth-child(odd) {
   width: 50%;
   border-collapse: collapse;
   font-size: 30px;
+  margin: 1%;
 }

@@ -1,7 +1,7 @@
 <header>
   <img src="assets/images/LogoFin.png" alt="Logo" />
   <ul>
-    <li><a routerLink="/home">Inicio</a></li>
+    <li><a routerLink="/admin">Inicio</a></li>
   </ul>
 </header>
 
@@ -19,8 +19,14 @@
             <h5 class="card-title">{{ kpi.title }}</h5>
             <p class="card-text display-4">
               <!-- Verificar si es un valor numérico o string -->
-              <ng-container *ngIf="kpi.title.includes('Ventas') || kpi.title.includes('Ganancias'); else numero">
-                {{ kpi.value | currency:'USD':'symbol':'1.2-2' }}
+              <ng-container
+                *ngIf="
+                  kpi.title.includes('Ventas') ||
+                    kpi.title.includes('Ganancias');
+                  else numero
+                "
+              >
+                {{ kpi.value | currency : "USD" : "symbol" : "1.2-2" }}
               </ng-container>
               <ng-template #numero>
                 {{ kpi.value }}
@@ -31,12 +37,37 @@
       </div>
     </div>
 
-    <!-- Gráficos -->
+    <!-- Top 3 de tratamientos más usados -->
     <div class="graficos">
       <div class="row mb-4">
         <div class="col-lg-12">
-          <h3 class="text-center">Comparativa de Atenciones por Veterinario</h3>
-          <canvas id="comparativaVeterinariosBar"></canvas>
+          <h3 class="text-center">Top 3 tratamientos más vendidos</h3>
+          <canvas id="top3_tratamientos"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla de Cantidad de Tratamientos por Tipo de Medicamento -->
+    <div class="tabla-container">
+      <div class="row mb-4">
+        <div class="col-lg-12">
+          <h3 class="text-center">
+            Cantidad de Tratamientos por Tipo de Medicamento
+          </h3>
+          <table class="table table-striped top-tratamientos">
+            <thead>
+              <tr>
+                <th>Nombre del Medicamento</th>
+                <th>Cantidad Tratamientos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tratamiento of cant_tratamientos">
+                <td>{{ tratamiento.nombre }}</td>
+                <td>{{ tratamiento.cantidad }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

@@ -36,4 +36,9 @@ export class DrogaService {
   getGananciasTotales(): Observable<number> {
     return this.http.get<number>(`http://localhost:8080/drogas/ganancias-totales`);
   }
+
+  getTopTratamientos(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8080/drogas/top3');
+  }
+
 }
