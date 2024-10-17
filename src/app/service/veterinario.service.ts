@@ -29,6 +29,7 @@ export class VeterinarioService {
   }
 
   add(veterinario: Veterinario) {
+    console.log(veterinario);
     return this.http
       .post('http://localhost:8080/veterinario/agregar', veterinario);
   }

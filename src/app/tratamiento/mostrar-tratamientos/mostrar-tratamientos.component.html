@@ -9,13 +9,22 @@
   <div class="titulo">
     <h1>Tratamientos</h1>
     <a [routerLink]="['/add-tratamiento']" type="button">
-      <img
-        src="assets/images/agregar.png"
-        alt="Add"
-        height="60px"
-        class="add"
-      />
+      <img src="assets/images/agregar.png" alt="Add" height="60px" class="add" />
     </a>
+  </div>
+
+  <!-- Contenedor de búsqueda -->
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Buscar por mascota, veterinario o droga"
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="buscarTratamiento()"
+    />
+    <button type="button" class="search-btn" (click)="buscarTratamiento()">
+      Buscar
+    </button>
   </div>
 
   <div class="container">
@@ -33,9 +42,9 @@
       <tbody>
         <tr
           class="justify-content-center"
-          *ngFor="let consulta of listaConsultas"
+          *ngFor="let consulta of listaFiltrada"
         >
-          <td>{{ consulta.fechaConsulta | date : "dd/MM/yyyy, h:mm a" }}</td>
+          <td>{{ consulta.fechaConsulta | date: 'dd/MM/yyyy, h:mm a' }}</td>
           <td>{{ consulta.mascota?.nombre }}</td>
           <td>{{ consulta.veterinario?.nombre }}</td>
           <td>{{ consulta.droga?.nombre }}</td>
@@ -52,11 +61,7 @@
               class="btn btn-outline-danger"
               (click)="eliminarTratamiento(consulta)"
             >
-              <img
-                src="assets/images/eliminar.png"
-                alt="Delete"
-                height="40px"
-              />
+              <img src="assets/images/eliminar.png" alt="Delete" height="40px" />
             </a>
           </td>
         </tr>
