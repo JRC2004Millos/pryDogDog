@@ -3,7 +3,7 @@
 
   <ul>
     <li><a href="#quienesSomos">¿Quienes Somos?</a></li>
-    <li><a href="#tranding">Servicios</a></li>
+    <li><a href="#servicios">Servicios</a></li>
     <li><a href="#compromiso">Compromiso</a></li>
     <li><a href="#nuestrosClientes">Nuestros Clientes</a></li>
     <li><a [routerLink]="['/login']">Iniciar Sesión</a></li>
@@ -30,8 +30,12 @@
 </section>
 
 <div class="carrusel">
-  <h2 class="titulos">-Nuestros <span>Servicios</span>-</h2>
-  <app-carousel [images]="images" [services]="services" [autoSlide]="true"></app-carousel>
+  <h2 class="titulos" id="servicios">-Nuestros <span>Servicios</span>-</h2>
+  <app-carousel
+    [images]="images"
+    [services]="services"
+    [autoSlide]="true"
+  ></app-carousel>
 </div>
 
 <section id="compromiso" class="sec2">
@@ -46,68 +50,80 @@
   <img src="../assets/images/LogoSec3.jpg" alt="Perro" class="imgSec2" />
 </section>
 
-
 <section class="Clientes">
-  <h2 class="titulos">-Nuestros <span>Clientes</span>-</h2> 
+  <h2 class="titulos" id="nuestrosClientes">
+    -Nuestros <span>Clientes</span>-
+  </h2>
   <div class="card-container">
     <div class="card">
-      <img src="../assets/images/eladioKemba.jpg" alt="Eladio">
+      <img src="../assets/images/eladioKemba.jpg" alt="Eladio" />
       <div class="card-content">
         <h3>Eladio Carrion</h3>
-        <p >"Traje a mi perrita Kemba para un chequeo general, y el personal fue
+        <p>
+          "Traje a mi perrita Kemba para un chequeo general, y el personal fue
           increíblemente amable y profesional. Además, las instalaciones están
-          muy limpias y bien equipadas."</p>
+          muy limpias y bien equipadas."
+        </p>
       </div>
     </div>
-  
+
     <div class="card">
-      <img src="../assets/images/JuandaPerro.jpg" alt="Juanda">
+      <img src="../assets/images/JuandaPerro.jpg" alt="Juanda" />
       <div class="card-content">
         <h3>Gabriel Mora</h3>
-        <p>"Buena atención y precios justos. Me gusta que tienen un área de
+        <p>
+          "Buena atención y precios justos. Me gusta que tienen un área de
           espera cómoda y los tiempos de espera no son largos. Volvería sin
-          dudarlo."</p>
+          dudarlo."
+        </p>
       </div>
     </div>
-  
+
     <div class="card">
-      <img src="../assets/images/perrodueño1.jpg" alt="Dueño 1">
+      <img src="../assets/images/perrodueño1.jpg" alt="Dueño 1" />
       <div class="card-content">
         <h3>Benito Antonio</h3>
-        <p>"La atención fue excelente, el personal es amable y profesional. Mi
-          mascota recibió un tratamiento efectivo y cariñoso. ¡Recomendado!"</p>
+        <p>
+          "La atención fue excelente, el personal es amable y profesional. Mi
+          mascota recibió un tratamiento efectivo y cariñoso. ¡Recomendado!"
+        </p>
       </div>
     </div>
-  
+
     <div class="card">
-      <img src="../assets/images/perrodueño2.jpg" alt="Dueño 2">
+      <img src="../assets/images/perrodueño2.jpg" alt="Dueño 2" />
       <div class="card-content">
         <h3>Diomedes Diaz</h3>
-        <p> "¡Excelente servicio! El personal es muy amable y realmente se
+        <p>
+          "¡Excelente servicio! El personal es muy amable y realmente se
           preocupan por nuestras mascotas. Mi perrita salió feliz y bien
-          atendida. Totalmente recomendados."</p>
+          atendida. Totalmente recomendados."
+        </p>
       </div>
     </div>
-  
+
     <div class="card">
-      <img src="../assets/images/perrodueño3.jpeg" alt="Dueño 3">
+      <img src="../assets/images/perrodueño3.jpeg" alt="Dueño 3" />
       <div class="card-content">
         <h3>Kaleth Morales</h3>
-        <p> "Llevé a mi perro, Hoshi, para un problema de piel y el diagnóstico y
+        <p>
+          "Llevé a mi perro, Hoshi, para un problema de piel y el diagnóstico y
           tratamiento fueron rápidos y efectivos. El personal es muy atento y se
-          nota que realmente les importa el bienestar de los animales."</p>
+          nota que realmente les importa el bienestar de los animales."
+        </p>
       </div>
     </div>
-  
+
     <div class="card">
-      <img src="../assets/images/perrodueño4.jpg" alt="Dueño 4">
+      <img src="../assets/images/perrodueño4.jpg" alt="Dueño 4" />
       <div class="card-content">
         <h3>Silvestre Dangond</h3>
-        <p>"No puedo agradecer lo suficiente al equipo de DOG DOG por la
+        <p>
+          "No puedo agradecer lo suficiente al equipo de DOG DOG por la
           increíble atención que le dieron a mi perro Max. ¡Recomiendo esta
-          clínica sin dudarlo!"</p>
+          clínica sin dudarlo!"
+        </p>
       </div>
     </div>
   </div>
 </section>
-
