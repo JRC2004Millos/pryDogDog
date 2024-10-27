@@ -17,6 +17,8 @@ main {
   justify-content: center;
   align-items: center;
   height: calc(100vh - 200px); /* Resta el tamaño del header y footer */
+  background: linear-gradient(to bottom, #064469, #54859a);
+
 }
 
 main[_ngcontent-ng-c3702766150] {
@@ -161,4 +163,8 @@ header a {
 /* Efecto de zoom al pasar el ratón */
 .logos:hover {
   transform: scale(1.5);
+}
+
+#user-type {
+  
 }

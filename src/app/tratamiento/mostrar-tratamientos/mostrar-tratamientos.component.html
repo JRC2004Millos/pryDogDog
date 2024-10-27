@@ -9,7 +9,7 @@
   <div class="titulo">
     <h1>Tratamientos</h1>
     <a [routerLink]="['/add-tratamiento']" type="button">
-      <img src="assets/images/agregar.png" alt="Add" height="60px" class="add" />
+      <img src="assets/images/agregar.png" alt="Add" height="60px" class="add" id="agregar"/>
     </a>
   </div>
 
@@ -22,7 +22,7 @@
       [(ngModel)]="searchTerm"
       (keyup.enter)="buscarTratamiento()"
     />
-    <button type="button" class="search-btn" (click)="buscarTratamiento()">
+    <button type="button" class="search-btn" (click)="buscarTratamiento()" id="busqueda">
       Buscar
     </button>
   </div>
@@ -54,7 +54,7 @@
               class="btn btn-outline-secondary"
               [routerLink]="['/modificar-tratamiento', consulta.id]"
             >
-              <img src="assets/images/editar.png" alt="Edit" height="40px" />
+              <img src="assets/images/editar.png" alt="Edit" height="40px" id="editar"/>
             </a>
 
             <a

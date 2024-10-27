@@ -12,6 +12,7 @@
         <h2>Iniciar Sesión</h2>
         <label for="type" class="form-label"></label>
         <select
+          id="user-type"
           class="form-select"
           formControlName="type"
           (change)="onUserTypeChange($event)"
@@ -27,6 +28,7 @@
       <div *ngIf="selectedType === '1'" class="dynamic-fields">
         <div class="mb-3">
           <input
+            id="cedulaVet"
             type="number"
             class="form-control"
             formControlName="cedulaVeterinario"
@@ -35,6 +37,7 @@
         </div>
         <div class="mb-3">
           <input
+            id="passVet"
             type="password"
             class="form-control"
             formControlName="passwordVet"
@@ -76,7 +79,7 @@
       </div>
 
       <div class="mb-3">
-        <button type="submit" class="btn btn-dark">Iniciar Sesión</button>
+        <button id="btnIniciarSesion" type="submit" class="btn btn-dark">Iniciar Sesión</button>
       </div>
     </form>
   </div>
