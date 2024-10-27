@@ -18,6 +18,7 @@ import { ModificarVetComponent } from './veterinario/modificar-vet/modificar-vet
 import { AddTratamientoComponent } from './tratamiento/add-tratamiento/add-tratamiento.component';
 import { MostrarTratamientosComponent } from './tratamiento/mostrar-tratamientos/mostrar-tratamientos.component';
 import { ModificarTratamientoComponent } from './tratamiento/modificar-tratamiento/modificar-tratamiento.component';
+import { ErrorComponent } from './error/error/error.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'cliente/:id', component: ClienteComponent },
   { path: 'admin/negocio', component: AdminDashboardComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'error/:message', component: ErrorComponent },
 ];
 
 @NgModule({

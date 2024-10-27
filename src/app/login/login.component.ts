@@ -7,13 +7,11 @@ import { VeterinarioService } from '../service/veterinario.service';
 import { Cliente } from '../model/cliente';
 import { Veterinario } from '../model/veterinario';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-
 export class LoginComponent {
   loginForm: FormGroup;
   selectedType: string = '';
@@ -56,12 +54,17 @@ export class LoginComponent {
       const passwordAdmin = this.loginForm.get('password')?.value;
 
       // Verificar si las credenciales coinciden con las predefinidas
-      if (usuarioAdmin === this.adminUsername && passwordAdmin === this.adminPassword) {
+      if (
+        usuarioAdmin === this.adminUsername &&
+        passwordAdmin === this.adminPassword
+      ) {
         // Redirigir a la página de administración
         this.router.navigate(['/admin']);
       } else {
         console.error('Credenciales de administrador incorrectas');
-        alert('Credenciales de administrador incorrectas. Por favor, verifique.');
+        this.router.navigate([
+          '/error/Credenciales de administrador incorrectas',
+        ]);
       }
     }
 
@@ -73,18 +76,27 @@ export class LoginComponent {
       // Llamar al servicio para buscar al veterinario por su cédula y contraseña
       this.veterinarioService.findByCedula(cedulaVeterinario).subscribe(
         (veterinario: Veterinario) => {
-          console.log(veterinario);
-          // Si el veterinario existe y las credenciales son correctas, redirigir a la página del veterinario
-          if (veterinario.clave == passwordVet) {
-            this.router.navigate(['/veterinario', veterinario.id]);
+          if (veterinario == null) {
+            console.error('Veterinario no encontrado');
+            this.router.navigate(['/error/Veterinario no encontrado']);
           } else {
-            console.error('Veterinario no encontrado o credenciales incorrectas');
-            alert('Veterinario no encontrado o credenciales incorrectas, por favor verifique su cédula y contraseña.');
+            console.log(veterinario);
+            // Si el veterinario existe y las credenciales son correctas, redirigir a la página del veterinario
+            if (veterinario.clave == passwordVet) {
+              this.router.navigate(['/veterinario', veterinario.id]);
+            } else {
+              console.error(
+                'Veterinario no encontrado o credenciales incorrectas'
+              );
+              this.router.navigate([
+                '/error/Veterinario no encontrado o credenciales incorrectas',
+              ]);
+            }
           }
         },
         (error) => {
           console.error('Error al verificar el veterinario:', error);
-          alert('Error al verificar el veterinario.');
+          this.router.navigate(['/error/Error al verificar el veterinario']);
         }
       );
     }
@@ -101,12 +113,12 @@ export class LoginComponent {
             this.router.navigate(['/cliente', cliente.id]);
           } else {
             console.error('Cliente no encontrado');
-            alert('Cliente no encontrado, por favor verifique su cédula.');
+            this.router.navigate(['/error/Cliente no encontrado']);
           }
         },
         (error) => {
           console.error('Error al verificar el cliente:', error);
-          alert('Error al verificar el cliente.');
+          this.router.navigate(['/error/Error al verificar el cliente']);
         }
       );
     }
