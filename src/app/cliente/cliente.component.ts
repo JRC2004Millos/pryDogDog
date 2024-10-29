@@ -25,19 +25,22 @@ export class ClienteComponent {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
-      const id = Number(params.get('id'));
-      this.clienteService
-        .findById(id)
-        .pipe(
-          mergeMap((clienteInfo) => {
-            this.cliente = clienteInfo;
-            return this.mascotaService.findClienteMascota(id);
-          })
-        )
-        .subscribe((mascotas) => {
-          this.cliente.mascotas = mascotas;
-        });
+    // this.route.paramMap.subscribe((params) => {
+    //   const id = Number(params.get('id'));
+    //   this.clienteService
+    //     .findById(id)
+    //     .pipe(
+    //       mergeMap((clienteInfo) => {
+    //         this.cliente = clienteInfo;
+    //         return this.mascotaService.findClienteMascota(id);
+    //       })
+    //     )
+    //     .subscribe((mascotas) => {
+    //       this.cliente.mascotas = mascotas;
+    //     });
+    // });
+    this.clienteService.clienteHome().subscribe((cliente) => {
+      this.cliente = cliente;
     });
   }
 

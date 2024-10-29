@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cliente } from '../model/cliente';
 import { Observable } from 'rxjs';
+import { User } from '../model/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClienteService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   findAll(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>('http://localhost:8080/clientes/ver');
@@ -28,11 +28,26 @@ export class ClienteService {
   }
 
   findByCedula(cedula: number): Observable<Cliente> {
-    return this.http.get<Cliente>('http://localhost:8080/clientes/cedula/' + cedula);
+    return this.http.get<Cliente>(
+      'http://localhost:8080/clientes/cedula/' + cedula
+    );
   }
 
-  updateCliente(cliente: Cliente){
+  login(user: User): Observable<String> {
+    return this.http.post('http://localhost:8080/clientes/login', user, {
+      responseType: 'text',
+    });
+  }
+
+  clienteHome(): Observable<Cliente> {
+    return this.http.get<Cliente>('http://localhost:8080/clientes/details');
+  }
+
+  updateCliente(cliente: Cliente) {
     console.log(cliente);
-    return this.http.put<Cliente>('http://localhost:8080/clientes/modificar', cliente);
+    return this.http.put<Cliente>(
+      'http://localhost:8080/clientes/modificar',
+      cliente
+    );
   }
 }
