@@ -6,6 +6,7 @@ import { ClienteService } from '../service/cliente.service';
 import { VeterinarioService } from '../service/veterinario.service';
 import { Cliente } from '../model/cliente';
 import { Veterinario } from '../model/veterinario';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-login',
@@ -70,57 +71,97 @@ export class LoginComponent {
 
     // Veterinario
     if (userType === '1') {
-      const cedulaVeterinario = this.loginForm.get('cedulaVeterinario')?.value;
-      const passwordVet = this.loginForm.get('passwordVet')?.value;
+      const user: User = {
+        cedula: this.loginForm.get('cedulaVeterinario')?.value,
+        clave: this.loginForm.get('passwordVet')?.value,
+      };
 
-      // Llamar al servicio para buscar al veterinario por su cédula y contraseña
-      this.veterinarioService.findByCedula(cedulaVeterinario).subscribe(
-        (veterinario: Veterinario) => {
-          if (veterinario == null) {
-            console.error('Veterinario no encontrado');
-            this.router.navigate(['/error/Veterinario no encontrado']);
-          } else {
-            console.log(veterinario);
-            // Si el veterinario existe y las credenciales son correctas, redirigir a la página del veterinario
-            if (veterinario.clave == passwordVet) {
-              this.router.navigate(['/veterinario', veterinario.id]);
-            } else {
-              console.error(
-                'Veterinario no encontrado o credenciales incorrectas'
-              );
-              this.router.navigate([
-                '/error/Veterinario no encontrado o credenciales incorrectas',
-              ]);
-            }
-          }
+      this.veterinarioService.login(user).subscribe(
+        (data) => {
+          localStorage.setItem('token', String(data));
+          this.router.navigate(['/veterinario']);
         },
         (error) => {
-          console.error('Error al verificar el veterinario:', error);
-          this.router.navigate(['/error/Error al verificar el veterinario']);
+          console.error('Error en inicio de sesión:', error);
+          // Aquí puedes mostrar un mensaje de error al usuario o redirigirlo a una página de error
+          this.router.navigate([
+            '/error',
+            'No se encontró al veterinario o las credenciales son incorrectas',
+          ]);
         }
       );
+
+      // const cedulaVeterinario = this.loginForm.get('cedulaVeterinario')?.value;
+      // const passwordVet = this.loginForm.get('passwordVet')?.value;
+
+      // // Llamar al servicio para buscar al veterinario por su cédula y contraseña
+      // this.veterinarioService.findByCedula(cedulaVeterinario).subscribe(
+      //   (veterinario: Veterinario) => {
+      //     if (veterinario == null) {
+      //       console.error('Veterinario no encontrado');
+      //       this.router.navigate(['/error/Veterinario no encontrado']);
+      //     } else {
+      //       console.log(veterinario);
+      //       // Si el veterinario existe y las credenciales son correctas, redirigir a la página del veterinario
+      //       if (veterinario.clave == passwordVet) {
+      //         this.router.navigate(['/veterinario', veterinario.id]);
+      //       } else {
+      //         console.error(
+      //           'Veterinario no encontrado o credenciales incorrectas'
+      //         );
+      //         this.router.navigate([
+      //           '/error/Veterinario no encontrado o credenciales incorrectas',
+      //         ]);
+      //       }
+      //     }
+      //   },
+      //   (error) => {
+      //     console.error('Error al verificar el veterinario:', error);
+      //     this.router.navigate(['/error/Error al verificar el veterinario']);
+      //   }
+      // );
     }
 
     // Cliente
     if (userType === '3') {
-      const cedulaCliente = this.loginForm.get('cedula')?.value;
+      const user: User = {
+        cedula: this.loginForm.get('cedula')?.value,
+        clave: '123',
+      };
 
-      // Llamar al servicio para buscar el cliente por su cédula
-      this.clienteService.findByCedula(cedulaCliente).subscribe(
-        (cliente: Cliente) => {
-          // Si el cliente existe, redirigir a la página del cliente
-          if (cliente) {
-            this.router.navigate(['/cliente', cliente.id]);
-          } else {
-            console.error('Cliente no encontrado');
-            this.router.navigate(['/error/Cliente no encontrado']);
-          }
+      this.clienteService.login(user).subscribe(
+        (data) => {
+          localStorage.setItem('token', String(data));
+          this.router.navigate(['/cliente']);
         },
         (error) => {
-          console.error('Error al verificar el cliente:', error);
-          this.router.navigate(['/error/Error al verificar el cliente']);
+          console.error('Error en inicio de sesión:', error);
+          // Aquí puedes mostrar un mensaje de error al usuario o redirigirlo a una página de error
+          this.router.navigate([
+            '/error',
+            'No se encontró el cliente o las credenciales son incorrectas',
+          ]);
         }
       );
+
+      // const cedulaCliente = this.loginForm.get('cedula')?.value;
+
+      // // Llamar al servicio para buscar el cliente por su cédula
+      // this.clienteService.findByCedula(cedulaCliente).subscribe(
+      //   (cliente: Cliente) => {
+      //     // Si el cliente existe, redirigir a la página del cliente
+      //     if (cliente) {
+      //       this.router.navigate(['/cliente', cliente.id]);
+      //     } else {
+      //       console.error('Cliente no encontrado');
+      //       this.router.navigate(['/error/Cliente no encontrado']);
+      //     }
+      //   },
+      //   (error) => {
+      //     console.error('Error al verificar el cliente:', error);
+      //     this.router.navigate(['/error/Error al verificar el cliente']);
+      //   }
+      // );
     }
   }
 }

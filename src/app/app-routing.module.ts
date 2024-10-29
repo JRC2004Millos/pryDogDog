@@ -23,7 +23,7 @@ import { ErrorComponent } from './error/error/error.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'veterinario/:id', component: VeterinarioComponent },
+  { path: 'veterinario', component: VeterinarioComponent },
   { path: 'veterinarios', component: MostrarVetsComponent },
   { path: 'mascotas', component: MostrarMascotasComponent },
   { path: 'clientes', component: MostrarClientesComponent },
@@ -40,7 +40,7 @@ const routes: Routes = [
     component: ModificarTratamientoComponent,
   },
   { path: 'admin', component: AdminHomeComponent },
-  { path: 'cliente/:id', component: ClienteComponent },
+  { path: 'cliente', component: ClienteComponent },
   { path: 'admin/negocio', component: AdminDashboardComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'error/:message', component: ErrorComponent },
