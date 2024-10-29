@@ -1,0 +1,106 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  background: linear-gradient(to bottom, #064469, #54859a);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 200px); /* Ajusta la altura excluyendo header/footer */
+  background: linear-gradient(to bottom, #064469, #54859a);
+}
+
+.error-content {
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  gap: 20px; /* Espacio entre los elementos */
+  text-align: center; /* Centra el texto */
+}
+
+.error-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50px;
+}
+
+button#btnVolver {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#btnVolver:hover {
+  background-color: #0056b3;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #064469;
+  height: 100px;
+  padding: 0 20px; /* Espacio lateral extra */
+}
+
+header img {
+  height: 80%;
+  margin-left: 10px;
+}
+
+a {
+  margin: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+header > ul {
+  display: flex;
+  justify-content: end;
+  margin: 0;
+  padding: 0;
+}
+
+header ul li {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  list-style-type: none;
+  color: white;
+}
+
+header li a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+header a {
+  padding: 3px;
+}
+
+.error-title {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+
+}
+
+.error-message {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
