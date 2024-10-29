@@ -1,7 +1,7 @@
 <header>
   <img src="assets/images/LogoFin.png" alt="Logo" />
   <ul>
-    <li><a routerLink="/veterinario">Inicio</a></li>
+    <li><a routerLink="/veterinario" id="volverSesion">Inicio</a></li>
   </ul>
 </header>
 
@@ -9,7 +9,13 @@
   <div class="titulo">
     <h1>Mascotas</h1>
     <a [routerLink]="['/add-mascota']" type="button">
-      <img src="assets/images/agregar.png" alt="Add" height="60px" class="add" />
+      <img
+        src="assets/images/agregar.png"
+        alt="Add"
+        height="60px"
+        class="add"
+        id="agregar"
+      />
     </a>
   </div>
 
@@ -41,7 +47,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="justify-content-center" *ngFor="let mascota of listaFiltrada">
+        <tr
+          class="justify-content-center"
+          *ngFor="let mascota of listaFiltrada"
+        >
           <td>
             <img
               src="{{ mascota.fotoURL }}"
@@ -55,11 +64,21 @@
           <td>{{ mascota.peso }}</td>
           <td>{{ mascota.enfermedad }}</td>
           <td class="botones">
-            <a class="btn btn-outline-secondary" [routerLink]="['/modificar-mascota', mascota.id]">
+            <a
+              class="btn btn-outline-secondary"
+              [routerLink]="['/modificar-mascota', mascota.id]"
+            >
               <img src="assets/images/editar.png" alt="Edit" height="40px" />
             </a>
-            <a class="btn btn-outline-danger" (click)="eliminarMascota(mascota)">
-              <img src="assets/images/eliminar.png" alt="Delete" height="40px" />
+            <a
+              class="btn btn-outline-danger"
+              (click)="eliminarMascota(mascota)"
+            >
+              <img
+                src="assets/images/eliminar.png"
+                alt="Delete"
+                height="40px"
+              />
             </a>
           </td>
         </tr>

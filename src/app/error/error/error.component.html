@@ -5,8 +5,14 @@
   <main>
     <div class="error-content">
       <h1 class="error-title">Error</h1>
-      <img src="../assets/images/PerroError1.png" alt="Imagen de error" class="error-image">
-      <p class="error-message">{{ message || "Ocurrió un error inesperado." }}</p>
+      <img
+        src="../assets/images/PerroError1.png"
+        alt="Imagen de error"
+        class="error-image"
+      />
+      <p class="error-message">
+        {{ message || "Ocurrió un error inesperado." }}
+      </p>
       <button (click)="volverInicio()" id="btnVolver">Volver al Inicio</button>
     </div>
   </main>

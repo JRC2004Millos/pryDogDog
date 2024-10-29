@@ -1,14 +1,14 @@
 <header>
   <img src="assets/images/LogoFin.png" alt="Logo" />
   <ul>
-    <li><a routerLink="/veterinario">Inicio</a></li>
+    <li><a routerLink="/veterinario" id="volverSesion">Inicio</a></li>
   </ul>
 </header>
 
 <main class="inicio">
   <div class="titulo">
     <h1>Clientes</h1>
-    <a [routerLink]="['/add-cliente']" type="button" >
+    <a [routerLink]="['/add-cliente']" type="button">
       <img
         id="agregarCliente"
         src="assets/images/agregar.png"
@@ -34,7 +34,9 @@
   </div>
 
   <div class="container">
-    <table class="table mx-auto text-center justify-content-center align-items-center">
+    <table
+      class="table mx-auto text-center justify-content-center align-items-center"
+    >
       <thead>
         <tr>
           <th>Nombre</th>
@@ -51,11 +53,21 @@
           <td>{{ cliente.celular }}</td>
           <td>{{ cliente.email }}</td>
           <td class="botones">
-            <a class="btn btn-outline-secondary" [routerLink]="['/modificar-cliente', cliente.id]">
+            <a
+              class="btn btn-outline-secondary"
+              [routerLink]="['/modificar-cliente', cliente.id]"
+            >
               <img src="assets/images/editar.png" alt="Edit" height="40px" />
             </a>
-            <a class="btn btn-outline-danger" (click)="eliminarCliente(cliente)">
-              <img src="assets/images/eliminar.png" alt="Delete" height="40px" />
+            <a
+              class="btn btn-outline-danger"
+              (click)="eliminarCliente(cliente)"
+            >
+              <img
+                src="assets/images/eliminar.png"
+                alt="Delete"
+                height="40px"
+              />
             </a>
           </td>
         </tr>
