@@ -5,6 +5,7 @@ import { MascotaService } from '../service/mascota.service';
 import { Cliente } from '../model/cliente';
 import { Mascota } from '../model/mascota';
 import { Consulta } from '../model/consulta';
+import { AuthService } from 'src/app/service/auth.service';
 import { mergeMap } from 'rxjs';
 
 @Component({
@@ -21,7 +22,8 @@ export class ClienteComponent {
     private clienteService: ClienteService,
     private router: Router,
     private route: ActivatedRoute,
-    private mascotaService: MascotaService
+    private mascotaService: MascotaService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -71,4 +73,10 @@ export class ClienteComponent {
       this.consultas = [];
     }
   }
+
+  onLogout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
 }

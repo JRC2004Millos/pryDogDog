@@ -1,7 +1,8 @@
-import { ActivatedRoute } from '@angular/router';
 import { VeterinarioService } from '../service/veterinario.service';
 import { Veterinario } from '../model/veterinario';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../service/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-veterinario',
@@ -13,7 +14,9 @@ export class VeterinarioComponent implements OnInit {
 
   constructor(
     private veterinarioService: VeterinarioService,
-    private route: ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -36,5 +39,10 @@ export class VeterinarioComponent implements OnInit {
     //     console.error('ID de veterinario no válido en la URL');
     //   }
     // });
+  }
+
+  onLogout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

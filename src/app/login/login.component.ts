@@ -7,6 +7,7 @@ import { VeterinarioService } from '../service/veterinario.service';
 import { Cliente } from '../model/cliente';
 import { Veterinario } from '../model/veterinario';
 import { User } from '../model/user';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +27,7 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private authService: AuthService,
     private http: HttpClient,
     private clienteService: ClienteService,
     private veterinarioService: VeterinarioService // Inyectar el servicio de veterinario
@@ -43,6 +45,21 @@ export class LoginComponent {
   // Cambia el tipo de usuario seleccionado
   onUserTypeChange(event: any) {
     this.selectedType = event.target.value;
+  }
+
+  ngOnInit(): void {
+    console.log(this.authService.getUserRole());
+    // Verifica si el usuario ya tiene un token y un rol válido
+    if (this.authService.isLoggedIn()) {
+      const role = this.authService.getUserRole();
+      if (role === 'VETERINARIO') {
+        this.router.navigate(['/veterinario']);
+      } else if (role === 'CLIENTE') {
+        this.router.navigate(['/cliente']);
+      } else if (role === 'ADMIN') {
+        this.router.navigate(['/admin']);
+      }
+    }
   }
 
   // Enviar el formulario al backend
@@ -78,7 +95,7 @@ export class LoginComponent {
 
       this.veterinarioService.login(user).subscribe(
         (data) => {
-          localStorage.setItem('token', String(data));
+          this.authService.setToken(String(data));
           this.router.navigate(['/veterinario']);
         },
         (error) => {
@@ -131,7 +148,7 @@ export class LoginComponent {
 
       this.clienteService.login(user).subscribe(
         (data) => {
-          localStorage.setItem('token', String(data));
+          this.authService.setToken(String(data));
           this.router.navigate(['/cliente']);
         },
         (error) => {

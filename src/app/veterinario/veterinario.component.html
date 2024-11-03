@@ -1,7 +1,7 @@
 <header class="header">
   <img src="assets/images/LogoFin.png" alt="Logo" />
   <ul>
-    <li><a routerLink="/login" id="cerrarSesion">Cerrar sesión</a></li>
+    <li><a href="javascript:void(0)" (click)="onLogout()" id="cerrarSesion">Cerrar Sesión</a></li>
   </ul>
 </header>
 
@@ -32,8 +32,6 @@
         </div>
       </a>
 
-      <!-- Comentado por error de 'veterinario' no definido, descomentar al conectar con backend -->
-      <!-- <a [routerLink]="['/clientes', veterinario.id]" class="col"> -->
       <a [routerLink]="['/clientes']" class="col" id="cuadroCliente">
         <div class="testimonial-box">
           <div class="box-top">
