@@ -28,7 +28,7 @@ export class AuthService {
 
   clearToken(): void {
     localStorage.removeItem(this.tokenKey);
-  } 
+  }
 
   isLoggedIn(): boolean {
     return !!this.getToken();
@@ -42,7 +42,6 @@ export class AuthService {
     }
     return null;
   }
-
 
   logout(): void {
     this.clearToken();

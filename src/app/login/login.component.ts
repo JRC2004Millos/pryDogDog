@@ -8,6 +8,8 @@ import { Cliente } from '../model/cliente';
 import { Veterinario } from '../model/veterinario';
 import { User } from '../model/user';
 import { AuthService } from '../service/auth.service';
+import { AdminService } from '../service/admin.service';
+import { AdminUser } from '../model/adminUser';
 
 @Component({
   selector: 'app-login',
@@ -30,6 +32,7 @@ export class LoginComponent {
     private authService: AuthService,
     private http: HttpClient,
     private clienteService: ClienteService,
+    private adminService: AdminService,
     private veterinarioService: VeterinarioService // Inyectar el servicio de veterinario
   ) {
     this.loginForm = this.fb.group({
@@ -71,12 +74,12 @@ export class LoginComponent {
       const usuarioAdmin = this.loginForm.get('usuario')?.value;
       const passwordAdmin = this.loginForm.get('password')?.value;
 
-      const adminUser: User = {
-        cedula: usuarioAdmin,
-        clave: passwordAdmin,
+      const adminUser: AdminUser = {
+        username: usuarioAdmin,
+        password: passwordAdmin,
       };
 
-      this.authService.login(adminUser).subscribe(
+      this.adminService.login(adminUser).subscribe(
         (data) => {
           this.authService.setToken(String(data)); // Almacenar el token en el localStorage
           this.router.navigate(['/admin']); // Redirigir a la página de administración
