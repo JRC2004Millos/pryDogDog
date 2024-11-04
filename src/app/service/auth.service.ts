@@ -1,15 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+import { Observable } from 'rxjs';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private tokenKey = 'token';
+  constructor(private http: HttpClient) {}
 
   setToken(token: string): void {
     localStorage.setItem(this.tokenKey, token);
+  }
+
+  login(user: User): Observable<String> {
+    return this.http.post('http://localhost:8080/admin/login', user, {
+      responseType: 'text',
+    });
   }
 
   getToken(): string | null {

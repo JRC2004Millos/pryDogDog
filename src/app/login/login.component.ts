@@ -71,19 +71,24 @@ export class LoginComponent {
       const usuarioAdmin = this.loginForm.get('usuario')?.value;
       const passwordAdmin = this.loginForm.get('password')?.value;
 
-      // Verificar si las credenciales coinciden con las predefinidas
-      if (
-        usuarioAdmin === this.adminUsername &&
-        passwordAdmin === this.adminPassword
-      ) {
-        // Redirigir a la página de administración
-        this.router.navigate(['/admin']);
-      } else {
-        console.error('Credenciales de administrador incorrectas');
-        this.router.navigate([
-          '/error/Credenciales de administrador incorrectas',
-        ]);
-      }
+      const adminUser: User = {
+        cedula: usuarioAdmin,
+        clave: passwordAdmin,
+      };
+
+      this.authService.login(adminUser).subscribe(
+        (data) => {
+          this.authService.setToken(String(data)); // Almacenar el token en el localStorage
+          this.router.navigate(['/admin']); // Redirigir a la página de administración
+        },
+        (error) => {
+          console.error('Error en inicio de sesión para administrador:', error);
+          this.router.navigate([
+            '/error',
+            'Credenciales de administrador incorrectas',
+          ]);
+        }
+      );
     }
 
     // Veterinario

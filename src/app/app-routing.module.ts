@@ -19,30 +19,31 @@ import { AddTratamientoComponent } from './tratamiento/add-tratamiento/add-trata
 import { MostrarTratamientosComponent } from './tratamiento/mostrar-tratamientos/mostrar-tratamientos.component';
 import { ModificarTratamientoComponent } from './tratamiento/modificar-tratamiento/modificar-tratamiento.component';
 import { ErrorComponent } from './error/error/error.component';
-import { AuthGuard } from './service/auth.guard';
+import { AuthGuard } from './helpers/auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'veterinario', component: VeterinarioComponent, canActivate: [AuthGuard] },
-  { path: 'veterinarios', component: MostrarVetsComponent, canActivate: [AuthGuard] },
-  { path: 'mascotas', component: MostrarMascotasComponent, canActivate: [AuthGuard] },
-  { path: 'clientes', component: MostrarClientesComponent, canActivate: [AuthGuard] },
-  { path: 'tratamientos', component: MostrarTratamientosComponent, canActivate: [AuthGuard] },
-  { path: 'add-mascota', component: AddMascotaComponent, canActivate: [AuthGuard] },
-  { path: 'add-cliente', component: AddClienteComponent, canActivate: [AuthGuard] },
-  { path: 'add-vet', component: AddVetComponent, canActivate: [AuthGuard] },
-  { path: 'add-tratamiento', component: AddTratamientoComponent, canActivate: [AuthGuard] },
-  { path: 'modificar-mascota/:id', component: ModificarMascotaComponent, canActivate: [AuthGuard] },
-  { path: 'modificar-cliente/:id', component: ModificarClienteComponent, canActivate: [AuthGuard] },
-  { path: 'modificar-vet/:id', component: ModificarVetComponent, canActivate: [AuthGuard] },
-  {
-    path: 'modificar-tratamiento/:id',
-    component: ModificarTratamientoComponent,
-    canActivate: [AuthGuard],
-  },
-  { path: 'admin', component: AdminHomeComponent, canActivate: [AuthGuard], data: { expectedRole: 'ADMIN' } },
+
+    // Veterinario routes with AuthGuard and expected role
   { path: 'veterinario', component: VeterinarioComponent, canActivate: [AuthGuard], data: { expectedRole: 'VETERINARIO' } },
+  { path: 'mascotas', component: MostrarMascotasComponent, canActivate: [AuthGuard], data: { expectedRole: 'VETERINARIO' }},
+  { path: 'clientes', component: MostrarClientesComponent, canActivate: [AuthGuard], data: { expectedRole: 'VETERINARIO' } },
+  { path: 'modificar-cliente/:id', component: ModificarClienteComponent, canActivate: [AuthGuard], data: { expectedRole: 'VETERINARIO' } },
+  { path: 'tratamientos', component: MostrarTratamientosComponent, canActivate: [AuthGuard], data: { expectedRole: 'VETERINARIO' }},
+  { path: 'add-mascota', component: AddMascotaComponent, canActivate: [AuthGuard], data: { expectedRole: 'VETERINARIO' } },
+  { path: 'add-cliente', component: AddClienteComponent, canActivate: [AuthGuard], data: { expectedRole: 'VETERINARIO' }},
+  { path: 'modificar-mascota/:id', component: ModificarMascotaComponent, canActivate: [AuthGuard], data: { expectedRole: 'VETERINARIO' } },
+  { path: 'add-tratamiento', component: AddTratamientoComponent, canActivate: [AuthGuard], data: { expectedRole: 'VETERINARIO' } },
+  { path: 'modificar-tratamiento/:id', component: ModificarTratamientoComponent, canActivate: [AuthGuard], data: { expectedRole: 'VETERINARIO' } },
+
+  // Admin routes with AuthGuard and expected role
+  { path: 'admin', component: AdminHomeComponent, canActivate: [AuthGuard], data: { expectedRole: 'ADMIN' } },
+  { path: 'admin/negocio', component: AdminDashboardComponent, canActivate: [AuthGuard], data: { expectedRole: 'ADMIN' } },
+  { path: 'veterinarios', component: MostrarVetsComponent, canActivate: [AuthGuard], data: { expectedRole: 'ADMIN' } },
+  { path: 'add-vet', component: AddVetComponent, canActivate: [AuthGuard], data: { expectedRole: 'ADMIN' } },
+  { path: 'modificar-vet/:id', component: ModificarVetComponent, canActivate: [AuthGuard], data: { expectedRole: 'ADMIN' } },
+
   { path: 'cliente', component: ClienteComponent, canActivate: [AuthGuard], data: { expectedRole: 'CLIENTE' } },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'error/:message', component: ErrorComponent },
